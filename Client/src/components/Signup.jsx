@@ -33,7 +33,7 @@ export default function Signup() {
       } else {
         //sending form to backend
         await axios
-          .post("http://localhost:8000/signup", {
+          .post("http://127.0.0.1:8000/signup", {
             formData,
           }) //the response is retruned from server.js here
           .then((res) => {
@@ -147,6 +147,7 @@ export default function Signup() {
             <ReCAPTCHA
               className="py-5"
               sitekey="6LdjJfMnAAAAAJA8J2HzOhrQrocs83XUzjBA8IQp"
+              onChange={(value) => setCaptchaValue(value)}
             />
             <input
               className="text-white cursor-pointer bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
