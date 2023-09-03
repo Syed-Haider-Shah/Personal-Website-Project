@@ -10,7 +10,7 @@ app.use(cors());
 
 app.get("/", cors(), (req, res) => {});
 
-//posting stuff to database
+//posting stuff to database from signup
 app.post("/signup", async (req, res) => {
   const formData = req.body.formData;
   const data = {
@@ -30,6 +30,35 @@ app.post("/signup", async (req, res) => {
     }
   } catch (e) {
     res.json("fail");
+    console.log(e);
+  }
+});
+
+//posting stuff to database from login
+app.post("/login", async (req, res) => {
+  const formData = req.body.formData;
+  console.log(formData.password);
+  try {
+    const check1 = await userCollection.find({ email: formData.email });
+    const check2 = await userCollection.find({
+      $and: [{ email: formData.email }, { password: formData.password }],
+    });
+
+    if (!Object.keys(check1).length == 0) {
+      if (!Object.keys(check2).length == 0) {
+        res.json("loginPass");
+        //  console.log(check2);
+      } else {
+        res.json("loginFail");
+        console.log(check2);
+      }
+    } else {
+      res.json("nouser");
+      // console.log(check2);
+    }
+  } catch (e) {
+    res.json("fail");
+    console.log(e);
   }
 });
 

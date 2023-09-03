@@ -1,11 +1,53 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
+import { ToastContainer, toast } from "react-toastify";
+import axios from "axios";
 
 export default function Login() {
+  const [captchaValue, setCaptchaValue] = useState(null);
+
+  //this is only a temporary storage so it can be trasported to server
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  //submit sends formData to backend for verification
+  const submit = async (e) => {
+    e.preventDefault();
+
+    try {
+      if (!captchaValue) {
+        toast.error("Fill the Captcha");
+      } else {
+        await axios
+          .post("http://127.0.0.1:8000/login", {
+            formData,
+          })
+          .then((res) => {
+            if (res.data == "loginPass") {
+              toast.success("Successfully Logged in");
+            } else if (res.data == "nouser") {
+              toast.error("This email is not registered");
+            } else if (res.data == "loginFail") {
+              toast.error("Invalid Credentials");
+            } else if (res.data == "fail") {
+              toast.error("Somethig went wrong!");
+            }
+          })
+          .catch(() => {
+            toast.error("Somethig went wrong!1");
+          });
+      }
+    } catch (e) {
+      toast.error("Somethig went wrong!2");
+    }
+  };
+
   return (
     <div className="">
-      <form action="POST" method="/login">
+      <form action="POST" method="/login" onSubmit={submit}>
         <section className="text-gray-600 body-font relative grid place-items-center py-32">
           <div className="absolute inset-0 bg-gray-300"></div>
 
@@ -23,6 +65,14 @@ export default function Login() {
                 Username or Email
               </label>
               <input
+                required
+                value={formData.cpassword}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    [e.target.name]: e.target.value,
+                  })
+                }
                 type="email"
                 id="email"
                 name="email"
@@ -31,21 +81,30 @@ export default function Login() {
             </div>
             <div className="relative mb-4">
               <label
-                htmlFor="email"
+                htmlFor="password"
                 className="leading-7 text-sm text-gray-600"
               >
                 Password
               </label>
               <input
-                type="email"
-                id="email"
-                name="email"
+                required
+                value={formData.cpassword}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    [e.target.name]: e.target.value,
+                  })
+                }
+                type="password"
+                id="password"
+                name="password"
                 className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
             </div>
             <ReCAPTCHA
               className="py-5"
               sitekey="6LdjJfMnAAAAAJA8J2HzOhrQrocs83XUzjBA8IQp"
+              onChange={(value) => setCaptchaValue(value)}
             />
             <input
               className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
