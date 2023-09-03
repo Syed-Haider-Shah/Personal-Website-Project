@@ -8,34 +8,46 @@ export default function Navbar() {
     setShowMenu(!showMenu);
   };
   return (
-    <div>
-      <header className="bg-slate-600 md:flex md:justify-between md:items-center md:px-4 md:py4">
-        <div className="flex items-center justify-between px-4  py-1 md:p-0">
-          <div className="w-11">
+    <div className="sticky top-0 z-50">
+      {/*used md: for minimum width for phone*/}
+      {/*header controls entire the nav*/}
+      <header className="bg-slate-600 md:flex md:justify-between md:items-center md:pl-52 md:pr-52 md:px-4 md:py-0 ">
+        {/*following code controls the left side of nav */}
+        <div className="flex items-center justify-between px-0 py-1 md:p-0">
+          <div className="w-96">
             {/* Clicking the logo takes you to the home page */}
+            <Link to={"/"}>
+              <img
+                src="/src/components/Images/logo.png"
+                alt="Logo"
+                className=" w-full cursor-pointer md:mt-1 md:mb-1"
+              />
+            </Link>
           </div>
+          {/* the following makes the cursor into hand when howered*/}
           <div className="md:hidden">
             <button onClick={toggle} className="text-white">
               <i className="cursor-pointer ml-3 mr-2 fa solid fa-bars scale-150"></i>
             </button>
           </div>
         </div>
-
+        {/* nav bar children design, it form which is search bar and the search button and 3 other buttons*/}
+        {/*nav tag controls the position of text on the right side in nav*/}
         <nav
-          className={` px-3 pt-1 pb-1 md:flex ${showMenu ? "block" : "hidden"}`}
+          className={`  px-3 pt-1 pb-1 md:flex ${
+            showMenu ? "block" : "hidden"
+          }`}
         >
           <form id="search-form">
             <div className="relative flex mx-auto text-gray-600 ">
-              {/* <i class="text-white text-xl mr-3 fa-solid fa-volume-high"></i> */}
-              {/* {micState ? <i class="text-white text-xl mr-3 fa-solid fa-volume-high"></i> : */}
-
-              <div className=" relative md:w-64 w-50 md:mr-4 mr-2 ">
+              <div className=" relative md:w-64 w-80 md:mr-4 mr-2 ">
+                {/*deign for search bar*/}
                 <input
                   type="text"
                   placeholder="Search"
                   id="footer-field"
                   name="footer-field"
-                  className="h-8 w-full bg-gray-100  rounded border border-gray-300 focus:ring-2  focus:ring-indigo-200 focus:border-indigo-500 text-base outline-none text-gray-700 py-0 pl-2 leading-8 transition-colors duration-200 ease-in-out"
+                  className="h-8 w-full bg-gray-100  rounded border border-gray-300 focus:ring-2  focus:ring-indigo-200 focus:border-indigo-500 text-base outline-none text-gray-700 py-0 pl-2 leading-8 transition-colors duration-400 ease-in-out"
                 />
               </div>
 
@@ -47,15 +59,20 @@ export default function Navbar() {
               </button>
             </div>
           </form>
+
+          {/* 3 buttons Login, Orders, Cart*/}
           <Link
             className="block w-fit px-2 py-1 text-white font-semibold rounded hover:bg-gray-700 md:ml-4"
             to={"/login"}
           >
-            Account/Login
+            LOL{" "}
           </Link>
-          <a className="cursor-pointer block w-fit px-2 py-1 text-white font-semibold rounded hover:bg-gray-700 md:ml-4">
-            Orders
-          </a>
+          <Link
+            className="cursor-pointer block w-fit px-2 py-1 text-white font-semibold rounded hover:bg-gray-700 md:ml-4"
+            to={"/account"}
+          >
+            LOL
+          </Link>
           <a className="cursor-pointer block w-fit px-2 py-1 text-white font-semibold rounded hover:bg-gray-700  md:ml-4">
             <i className="fa-solid fa-cart-shopping "></i>
           </a>

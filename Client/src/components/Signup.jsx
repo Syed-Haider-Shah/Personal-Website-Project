@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 export default function Signup() {
   const [captchaValue, setCaptchaValue] = useState(null);
@@ -40,6 +41,7 @@ export default function Signup() {
             if (res.data == "exist") {
               toast.error("Email is already registered");
             } else if (res.data == "notexist") {
+              Cookies.set("email", formData.email, { expires: 7 }); //generate cookie
               toast.success("Successfully Registered");
             }
           });

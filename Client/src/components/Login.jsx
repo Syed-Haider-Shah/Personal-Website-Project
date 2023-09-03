@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 export default function Login() {
   const [captchaValue, setCaptchaValue] = useState(null);
@@ -27,6 +28,7 @@ export default function Login() {
           })
           .then((res) => {
             if (res.data == "loginPass") {
+              Cookies.set("email", formData.email, { expires: 7 }); //generating cookies
               toast.success("Successfully Logged in");
             } else if (res.data == "nouser") {
               toast.error("This email is not registered");
@@ -107,7 +109,7 @@ export default function Login() {
               onChange={(value) => setCaptchaValue(value)}
             />
             <input
-              className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+              className="text-white cursor-pointer bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
               type="submit"
               value="Log In"
             />

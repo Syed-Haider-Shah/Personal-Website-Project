@@ -65,11 +65,14 @@ export default function Navbar() {
             className="block w-fit px-2 py-1 text-white font-semibold rounded hover:bg-gray-700 md:ml-4"
             to={"/login"}
           >
-            Account/Login{" "}
+            Login{" "}
           </Link>
-          <a className="cursor-pointer block w-fit px-2 py-1 text-white font-semibold rounded hover:bg-gray-700 md:ml-4">
-            Orders
-          </a>
+          <Link
+            className="cursor-pointer block w-fit px-2 py-1 text-white font-semibold rounded hover:bg-gray-700 md:ml-4"
+            to={"/account"}
+          >
+            Account
+          </Link>
           <a className="cursor-pointer block w-fit px-2 py-1 text-white font-semibold rounded hover:bg-gray-700  md:ml-4">
             <i className="fa-solid fa-cart-shopping "></i>
           </a>
