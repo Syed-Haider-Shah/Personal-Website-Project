@@ -5,8 +5,8 @@ import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 
 import Home from "./components/Home";
-import Navbar from "./components/Navbar";
-import Navbar1 from "./components/Navbar1";
+import Navbar from "./components/NavbarLog";
+import Navbar1 from "./components/NavbarNLog";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
