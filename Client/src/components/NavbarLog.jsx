@@ -109,7 +109,7 @@ export default function Navbar() {
           >
             <Link
               className="cursor-pointer block px-2 py-1 text-gray-700 hover:text-white font-semibold rounded hover:bg-indigo-500 md:p-4"
-              to={"/"}
+              to={"/login"}
             >
               How does this work?
             </Link>

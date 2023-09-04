@@ -12,6 +12,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Profile from "./components/Profile";
 import Hello from "./components/Hello";
+import Forget from "./components/Forget";
 
 function App() {
   const [cookieValue, setCookieValue] = useState(Cookies.get("email"));
@@ -44,6 +45,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/forget" element={<Forget />} />
         </Routes>
         <Footer />
       </div>
