@@ -13,8 +13,7 @@ export default function Navbar() {
   const [cookieValue, setCookieValue] = useState(Cookies.get("email"));
   const [name, setName] = useState("");
 
-  const submit = async (e) => {
-    e.preventDefault();
+  const submit = async () => {
     try {
       await axios
         .post("http://127.0.0.1:8000/account", {

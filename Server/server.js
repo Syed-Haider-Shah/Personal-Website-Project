@@ -10,7 +10,7 @@ app.use(cors());
 
 app.get("/", cors(), (req, res) => {});
 
-app.post("/myaccount", async (req, res) => {
+app.post("/account", async (req, res) => {
   try {
     const email = req.body.cookieValue;
     const check = await userCollection.findOne({ email: email });
@@ -38,6 +38,17 @@ app.post("/signup", async (req, res) => {
     }
   } catch (e) {
     res.json("fail");
+    console.log(e);
+  }
+});
+
+app.post("/hello", async (req, res) => {
+  try {
+    const email = req.body.cookieValue;
+    const check = await userCollection.findOne({ email: email });
+    console.log(check.name);
+    res.json(check.name);
+  } catch (e) {
     console.log(e);
   }
 });
