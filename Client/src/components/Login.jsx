@@ -10,6 +10,7 @@ export default function Login() {
 
   //this is only a temporary storage so it can be trasported to server
   const [formData, setFormData] = useState({
+    name: "",
     email: "",
     password: "",
   });
@@ -29,6 +30,7 @@ export default function Login() {
           .then((res) => {
             if (res.data == "loginPass") {
               Cookies.set("email", formData.email, { expires: 7 }); //generating cookies
+              Cookies.set("name", formData.name, { expires: 7 });
               toast.success("Successfully Logged in");
             } else if (res.data == "nouser") {
               toast.error("This email is not registered");

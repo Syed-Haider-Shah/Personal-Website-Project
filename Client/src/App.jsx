@@ -10,11 +10,13 @@ import Navbar1 from "./components/NavbarNLog";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
-import Account from "./components/Account";
+import Profile from "./components/Profile";
+import Hello from "./components/Hello";
 
 function App() {
   const [cookieValue, setCookieValue] = useState(Cookies.get("email"));
 
+  //checks the status of cookies(whether logged in or not)
   useEffect(() => {
     const interval = setInterval(() => {
       const updatedCookieValue = Cookies.get("email");
@@ -37,10 +39,11 @@ function App() {
             <Route path="/login" element={<Login />} />
           )}
           {cookieValue != undefined && (
-            <Route path="/login" element={<Account />} />
+            <Route path="/login" element={<Hello />} />
           )}
           <Route path="/signup" element={<Signup />} />
           <Route path="/" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
         <Footer />
       </div>

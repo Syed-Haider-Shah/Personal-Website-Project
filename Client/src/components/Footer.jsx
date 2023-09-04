@@ -9,31 +9,49 @@ export default function Footer() {
           <div className="flex flex-wrap md:text-left text-center order-first">
             <div className="lg:w-1/4 md:w-1/2 w-full px-4">
               <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
-                See All Categories
+                Pricing
               </h2>
               <nav className="list-none mb-10">
                 <li>
-                  <a
-                    href="https://www.youtube.com/@techywebdev8393"
-                    className="text-gray-600 hover:text-gray-800"
-                  >
-                    YT Channel
+                  <a href="" className="text-gray-600 hover:text-gray-800">
+                    View plans
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="https://www.youtube.com/@techywebdev8393"
-                    className="text-gray-600 hover:text-gray-800"
-                  >
-                    Twitter
+                  <a href="" className="text-gray-600 hover:text-gray-800">
+                    Why premium?
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="https://www.youtube.com/@techywebdev8393"
-                    className="text-gray-600 hover:text-gray-800"
-                  >
-                    Featured!
+                  <a href="" className="text-gray-600 hover:text-gray-800">
+                    Why ultimate?
+                  </a>
+                </li>
+              </nav>
+            </div>
+            <div className="lg:w-1/4 md:w-1/2 w-full px-4">
+              <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
+                Company
+              </h2>
+              <nav className="list-none mb-10">
+                <li>
+                  <a href="" className="text-gray-600 hover:text-gray-800">
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a href="" className="text-gray-600 hover:text-gray-800">
+                    Jobs
+                  </a>
+                </li>
+                <li>
+                  <a href="" className="text-gray-600 hover:text-gray-800">
+                    Leadership
+                  </a>
+                </li>
+                <li>
+                  <a href="" className="text-gray-600 hover:text-gray-800">
+                    Teams
                   </a>
                 </li>
               </nav>

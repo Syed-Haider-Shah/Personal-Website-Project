@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Ripple, Dropdown, initTE } from "tw-elements";
 import { Link } from "react-router-dom";
+import Cookies from "js-cookie";
+import axios from "axios";
 
 export default function Navbar() {
   //Used to initialise tailwind elements
@@ -8,10 +10,36 @@ export default function Navbar() {
     initTE({ Ripple, Dropdown });
   }, []);
 
+  const [cookieValue, setCookieValue] = useState(Cookies.get("email"));
+  const [name, setName] = useState("");
+
+  const submit = async (e) => {
+    e.preventDefault();
+    try {
+      await axios
+        .post("http://127.0.0.1:8000/account", {
+          cookieValue,
+        })
+        .then((res) => {
+          setName(res.data);
+        })
+        .catch(() => {});
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  useEffect(() => {
+    submit();
+  }, [cookieValue]);
+
   const [showMenu, setShowMenu] = useState(false); //for responsiveness ie phone display
   //just to toggle on and off
   const toggle = () => {
     setShowMenu(!showMenu);
+  };
+
+  const logOut = () => {
+    Cookies.remove("email");
   };
   return (
     <div className="sticky top-0 z-50">
@@ -206,14 +234,14 @@ export default function Navbar() {
           <Link className="cursor-pointer block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700  md:ml-4">
             <i className="fa-solid fa-cart-shopping "></i>
           </Link>
-          <Link
+          <h1
             data-te-dropdown-toggle-ref
             aria-expanded="false"
             id="dropdownMenuButton"
-            className="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700 md:ml-4"
+            className=" cursor-pointer block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700 md:ml-4"
           >
-            Name
-          </Link>
+            {name}
+          </h1>
           <ul
             data-te-dropdown-menu-ref
             aria-labelledby="dropdownMenuButton"
@@ -221,7 +249,7 @@ export default function Navbar() {
           >
             <Link
               className=" cursor-pointer block text-gray-700 hover:text-white font-semibold rounded hover:bg-indigo-500 md:py-4 md:px-4"
-              to={"/"}
+              to={"/profile"}
             >
               Profile
             </Link>
@@ -231,12 +259,12 @@ export default function Navbar() {
             >
               Orders
             </Link>
-            <Link
+            <button
               className="cursor-pointer block px-2 py-1 text-gray-700 hover:text-white font-semibold rounded hover:bg-indigo-500 md:py-4 md:px-4"
-              to={"/"}
+              onClick={logOut}
             >
               Log Out
-            </Link>
+            </button>
           </ul>
         </nav>
       </header>

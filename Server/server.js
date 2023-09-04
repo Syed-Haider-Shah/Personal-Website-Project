@@ -10,6 +10,14 @@ app.use(cors());
 
 app.get("/", cors(), (req, res) => {});
 
+app.post("/myaccount", async (req, res) => {
+  try {
+    const email = req.body.cookieValue;
+    const check = await userCollection.findOne({ email: email });
+    res.json(check.name);
+  } catch (e) {}
+});
+
 //posting stuff to database from signup
 app.post("/signup", async (req, res) => {
   const formData = req.body.formData;
