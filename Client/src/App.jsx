@@ -42,7 +42,12 @@ function App() {
           {cookieValue != undefined && (
             <Route path="/login" element={<Hello />} />
           )}
-          <Route path="/signup" element={<Signup />} />
+          {cookieValue == undefined && (
+            <Route path="/signup" element={<Signup />} />
+          )}
+          {cookieValue != undefined && (
+            <Route path="/signup" element={<Hello />} />
+          )}
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/forget" element={<Forget />} />

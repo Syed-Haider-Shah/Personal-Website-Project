@@ -17,7 +17,7 @@ export default function Navbar() {
     <div className="sticky top-0 z-50">
       {/*used md: for minimum width for phone*/}
       {/*header controls entire the nav*/}
-      <header className="bg-slate-600 md:flex md:justify-between md:items-center md:pl-52 md:pr-52 md:px-4 md:py-0 ">
+      <header className="bg-transparent md:flex md:justify-between md:items-center md:pl-52 md:pr-52 md:px-4 md:py-0 ">
         {/*following code controls the left side of nav */}
         <div className="flex items-center justify-between px-0 py-1 md:p-0">
           <div className="w-96">
