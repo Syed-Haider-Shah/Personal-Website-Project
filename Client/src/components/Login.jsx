@@ -65,7 +65,7 @@ export default function Login() {
                 htmlFor="email"
                 className="leading-7 text-sm text-gray-600"
               >
-                Username or Email
+                Email
               </label>
               <input
                 required
