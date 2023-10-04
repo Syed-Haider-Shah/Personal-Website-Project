@@ -8,7 +8,7 @@ import classnames from "classnames";
 
 const PageColors = [
   { link: "/", color: "bg-slate-700", initialColor: "bg-transparent" },
-  { link: "/signuppro", color: "bg-red-400", initialColor: "bg-red-400" },
+  { link: "/signuppro", color: "bg-slate-700", initialColor: "bg-transparent" },
 ];
 
 export default function Navbar() {
