@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import SmlText from "./SmlComponents/SmlText";
 import Card1 from "./SmlComponents/Card1";
-import { CheckList1, CheckList2, CheckList3 } from "../constants/portalCards";
+import { CheckList1, CheckList2, Options1 } from "../constants/portalCards";
+import Card2 from "./SmlComponents/Card2";
 
 const Background = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -110,9 +111,24 @@ const Background = () => {
               </div>
             </div>
             <div className="bg-transparent flex h-96 w-[80%] mt-20 justify-between">
-              <Card1 heading="Provider Type" checklist={CheckList1} />
-              <Card1 heading="Provider Type" checklist={CheckList2} />
-              <Card1 heading="Provider Type" checklist={CheckList3} />
+              <Card1
+                heading="What sort of Provider are you?"
+                checklist={CheckList1}
+              />
+              <Card1
+                heading="Which Service do you wish to use?"
+                checklist={CheckList2}
+              />
+              <Card2
+                heading="To become a Provider you must"
+                checklist={Options1}
+              />
+            </div>
+            <div className="bg-transparent flex h-96 w-[200rem] mt-20 justify-center">
+              <Card2
+                heading="Already a Provider and want to make changes?"
+                checklist={Options1}
+              />
             </div>
             <div className="h-40"></div>
           </section>
