@@ -14,7 +14,8 @@ app.post("/account", async (req, res) => {
   try {
     const email = req.body.cookieValue;
     const check = await userCollection.findOne({ email: email });
-    res.json(check.name);
+    console.log(check.choice);
+    res.json(check);
   } catch (e) {}
 });
 
@@ -25,6 +26,95 @@ app.post("/signup", async (req, res) => {
     name: formData.name,
     email: formData.email,
     password: formData.password,
+  };
+  try {
+    const check = await userCollection.findOne({ email: formData.email });
+
+    if (check) {
+      res.json("exist");
+    } else {
+      res.json("notexist");
+      console.log("not exist");
+      await userCollection.insertMany([data]);
+    }
+  } catch (e) {
+    res.json("fail");
+    console.log(e);
+  }
+});
+
+//posting stuff to database from signup
+app.post("/signupho", async (req, res) => {
+  const formData = req.body.formData;
+  const post = req.body.postcode;
+  const choice = req.body.choice;
+  console.log(choice);
+  const data = {
+    name: formData.name,
+    email: formData.email,
+    password: formData.password,
+    postcode: post,
+    choice: choice,
+  };
+  try {
+    const check = await userCollection.findOne({ email: formData.email });
+
+    if (check) {
+      res.json("exist");
+    } else {
+      res.json("notexist");
+      console.log("not exist");
+      await userCollection.insertMany([data]);
+    }
+  } catch (e) {
+    res.json("fail");
+    console.log(e);
+  }
+});
+
+app.post("/signuppro", async (req, res) => {
+  const formData = req.body.formData;
+  const post = req.body.postcode;
+  const choice = req.body.choice;
+  console.log(choice);
+  const data = {
+    name: formData.name,
+    email: formData.email,
+    password: formData.password,
+    postcode: post,
+    choice: choice,
+  };
+  try {
+    const check = await userCollection.findOne({ email: formData.email });
+
+    if (check) {
+      res.json("exist");
+    } else {
+      res.json("notexist");
+      console.log("not exist");
+      await userCollection.insertMany([data]);
+    }
+  } catch (e) {
+    res.json("fail");
+    console.log(e);
+  }
+});
+
+app.post("/signupcon", async (req, res) => {
+  const formData = req.body.formData;
+  const state = req.body.state;
+  const country = req.body.country;
+  const choice = req.body.choice;
+  console.log(choice);
+  console.log(state);
+  console.log(country);
+  const data = {
+    name: formData.name,
+    email: formData.email,
+    password: formData.password,
+    state: state,
+    country: country,
+    choice: choice,
   };
   try {
     const check = await userCollection.findOne({ email: formData.email });

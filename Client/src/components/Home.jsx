@@ -31,26 +31,21 @@ const Background = () => {
             alt="Background"
             className="w-full h-[90%] object-cover"
           />
-          <div className="absolute top-[72%] left-[32%] transform -translate-x-[25%] bg-transparent text-center z-10">
+          <div
+            className={`absolute top-[35%] left-[52%] transform -translate-x-[55%] bg-transparent text-center z-10`}
+          >
+            <h1 className="text-5xl font-bold text-white font-outline-">
+              ONE-STOP-SHOP FOR HOMEOWNERS, PROVIDERS & DIY-ERs
+            </h1>
+          </div>
+          <div className="absolute top-[50%] left-[32%] transform -translate-x-[25%] bg-transparent text-center z-10">
             {/* Title */}
-            <p1 className=" text-2xl text-white font-bol font-outline-">
+            <p1 className=" text-2xl text-white">
               RenoPilot offers a suite of products for Homeowners undertaking
               property improvement or home renovation projects and for companies
               and individuals who provide the goods and services those projects
               require.
             </p1>
-          </div>
-          <div className="hidden w-96 absolute top-[30%] left-[45%] transform -translate-x-[25%] bg-transparent text-center z-10">
-            <img
-              src="/src/components/Images/fence-2.png"
-              alt="fence"
-              className=""
-            />
-          </div>
-          <div className="absolute top-[15%] left-[52%] transform -translate-x-[55%] bg-transparent text-center z-10">
-            <h1 className="text-5xl font-bold text-white font-outline-">
-              ONE-STOP-SHOP FOR HOMEOWNERS, PROVIDERS & DIY-ERs
-            </h1>
           </div>
         </div>
       </section>

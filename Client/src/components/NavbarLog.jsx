@@ -1,17 +1,77 @@
-import { useEffect, useState } from "react";
-import { Ripple, Dropdown, initTE } from "tw-elements";
-import { Link } from "react-router-dom";
+import { useEffect, useMemo, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import Cookies from "js-cookie";
 import axios from "axios";
+import NavBtn from "./SmlComponents/NavBtn";
+import UserBtn from "./SmlComponents/Userbtn";
+import classnames from "classnames";
+
+const PageColors = [
+  { link: "/", color: "bg-slate-700", initialColor: "bg-transparent" },
+  { link: "/signuppro", color: "bg-red-400", initialColor: "bg-red-400" },
+];
 
 export default function Navbar() {
-  //Used to initialise tailwind elements
-  useEffect(() => {
-    initTE({ Ripple, Dropdown });
-  }, []);
-
   const [cookieValue, setCookieValue] = useState(Cookies.get("email"));
   const [name, setName] = useState("");
+  const [choice, setType] = useState("");
+  const [scrolled, setScrolled] = useState(false);
+
+  const { pathname } = useLocation();
+  const pageOption = PageColors.find((val) => val.link === pathname) || {
+    link: "",
+    color: "bg-slate-700",
+    initialColor: "bg-slate-700",
+  };
+
+  console.log(pageOption);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const scrollBreakpoint = 300;
+      /*
+        scrollTop is how far down from the top the screen has scrolled.
+        Alter scrollBreakpoint to adjust how far down the screen you want the event to trigger.
+      */
+      if (scrollTop > scrollBreakpoint) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const updatedCookieValue = Cookies.get("email");
+      if (updatedCookieValue !== cookieValue) {
+        setCookieValue(updatedCookieValue);
+      }
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [cookieValue]);
+
+  const navOptions = useMemo(() => {
+    if (!cookieValue) return null;
+    switch (choice) {
+      case "provider":
+        return <NavBtn button="Providers" route="signuppro" />;
+      case "contributor":
+        return (
+          <>
+            <NavBtn button="Providers Page" route="providerpage" />
+            <NavBtn button="Portal" route="signupcon" />
+          </>
+        );
+      default:
+        return <NavBtn button="Providers Page" route="providerpage" />;
+    }
+  }, [choice, cookieValue]);
 
   const submit = async () => {
     try {
@@ -20,7 +80,8 @@ export default function Navbar() {
           cookieValue,
         })
         .then((res) => {
-          setName(res.data);
+          setName(res.data.name);
+          setType(res.data.choice);
         })
         .catch(() => {});
     } catch (e) {
@@ -37,14 +98,19 @@ export default function Navbar() {
     setShowMenu(!showMenu);
   };
 
-  const logOut = () => {
-    Cookies.remove("email");
-  };
   return (
     <div className="sticky top-0 z-50">
       {/*used md: for minimum width for phone*/}
       {/*header controls entire the nav*/}
-      <header className="bg-slate-600 md:flex md:justify-between md:items-center md:pl-52 md:pr-52 md:px-4 md:py-0 ">
+      <header
+        className={classnames(
+          "md:flex md:justify-between md:items-center md:pl-52 md:pr-52 md:px-4 md:py-0 text-white transition-all duration-300",
+          {
+            [`py-6 shadow-lg ${pageOption.color}`]: scrolled,
+            [pageOption.initialColor]: !scrolled,
+          }
+        )}
+      >
         {/*following code controls the left side of nav */}
         <div className="flex items-center justify-between px-0 py-1 md:p-0">
           <div className="w-96">
@@ -94,177 +160,21 @@ export default function Navbar() {
           </form>
 
           {/* buttons on right*/}
-          <Link
-            data-te-dropdown-toggle-ref
-            aria-expanded="false"
-            id="dropdownMenuButton"
-            className="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700 md:ml-4"
-          >
-            Projects
-          </Link>
-          <ul
-            data-te-dropdown-menu-ref
-            aria-labelledby="dropdownMenuButton"
-            className="absolute z-[1000] float-right m-0 hidden min-w-max list-none overflow-hidden rounded-md border-none bg-white bg-clip-padding text-base shadow-lg [&[data-te-dropdown-show]]:block"
-          >
-            <Link
-              className="cursor-pointer block px-2 py-1 text-gray-700 hover:text-white font-semibold rounded hover:bg-indigo-500 md:p-4"
-              to={"/login"}
-            >
-              How does this work?
-            </Link>
-            <Link
-              className="cursor-pointer block px-2 py-1 text-gray-700 hover:text-white font-semibold rounded hover:bg-indigo-500 md:p-4"
-              to={"/"}
-            >
-              Inspirations
-            </Link>
-            <Link
-              className="cursor-pointer block px-2 py-1 text-gray-700 hover:text-white font-semibold rounded hover:bg-indigo-500 md:p-4"
-              to={"/"}
-            >
-              DIY
-            </Link>
-            <Link
-              className="cursor-pointer block px-2 py-1 text-gray-700 hover:text-white font-semibold rounded hover:bg-indigo-500 md:p-4"
-              to={"/"}
-            >
-              Get Started
-            </Link>
-          </ul>
-
-          <Link
-            data-te-dropdown-toggle-ref
-            aria-expanded="false"
-            id="dropdownMenuButton"
-            className="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700 md:ml-4"
-          >
-            Designs
-          </Link>
-          <ul
-            data-te-dropdown-menu-ref
-            aria-labelledby="dropdownMenuButton"
-            className="absolute z-[1000] float-right m-0 hidden min-w-max list-none overflow-hidden rounded-md border-none bg-white bg-clip-padding text-base shadow-lg [&[data-te-dropdown-show]]:block"
-          >
-            <Link
-              className="cursor-pointer block px-2 py-1 text-gray-700 hover:text-white font-semibold rounded hover:bg-indigo-500 md:p-4"
-              to={"/"}
-            >
-              Fences
-            </Link>
-            <Link
-              className="cursor-pointer block px-2 py-1 text-gray-700 hover:text-white font-semibold rounded hover:bg-indigo-500 md:p-4"
-              to={"/"}
-            >
-              Doors
-            </Link>
-            <Link
-              className="cursor-pointer block px-2 py-1 text-gray-700 hover:text-white font-semibold rounded hover:bg-indigo-500 md:p-4"
-              to={"/"}
-            >
-              Sofas
-            </Link>
-          </ul>
-
-          <Link
-            data-te-dropdown-toggle-ref
-            aria-expanded="false"
-            id="dropdownMenuButton"
-            className="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700 md:ml-4"
-          >
-            Products
-          </Link>
-          <ul
-            data-te-dropdown-menu-ref
-            aria-labelledby="dropdownMenuButton"
-            className="absolute z-[1000] float-right m-0 hidden min-w-max list-none overflow-hidden rounded-md border-none bg-white bg-clip-padding text-base shadow-lg [&[data-te-dropdown-show]]:block"
-          >
-            <Link
-              className="cursor-pointer block px-2 py-1 text-gray-700 hover:text-white font-semibold rounded hover:bg-indigo-500 md:p-4"
-              to={"/"}
-            >
-              Fences
-            </Link>
-            <Link
-              className="cursor-pointer block px-2 py-1 text-gray-700 hover:text-white font-semibold rounded hover:bg-indigo-500 md:p-4"
-              to={"/"}
-            >
-              Doors
-            </Link>
-            <Link
-              className="cursor-pointer block px-2 py-1 text-gray-700 hover:text-white font-semibold rounded hover:bg-indigo-500 md:p-4"
-              to={"/"}
-            >
-              Sofas
-            </Link>
-          </ul>
-          <Link
-            data-te-dropdown-toggle-ref
-            aria-expanded="false"
-            id="dropdownMenuButton"
-            className="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700 md:ml-4"
-          >
-            Providers
-          </Link>
-          <ul
-            data-te-dropdown-menu-ref
-            aria-labelledby="dropdownMenuButton"
-            className="absolute z-[1000] float-right m-0 hidden min-w-max list-none overflow-hidden rounded-md border-none bg-white bg-clip-padding text-base shadow-lg [&[data-te-dropdown-show]]:block"
-          >
-            <Link
-              className="cursor-pointer block px-2 py-1 text-gray-700 hover:text-white font-semibold rounded hover:bg-indigo-500 md:p-4"
-              to={"/"}
-            >
-              Maintenance
-            </Link>
-            <Link
-              className="cursor-pointer block px-2 py-1 text-gray-700 hover:text-white font-semibold rounded hover:bg-indigo-500 md:p-4"
-              to={"/"}
-            >
-              Contractors
-            </Link>
-            <Link
-              className="cursor-pointer block px-2 py-1 text-gray-700 hover:text-white font-semibold rounded hover:bg-indigo-500 md:p-4"
-              to={"/"}
-            >
-              Retailers
-            </Link>
-          </ul>
-          <Link className="cursor-pointer block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700  md:ml-4">
+          <NavBtn button="Projects" />
+          <NavBtn button="Inspiration" />
+          <NavBtn button="Products" />
+          <NavBtn button="Design" />
+          <NavBtn button="Cost" />
+          <NavBtn button="About Us" route="aboutus" />
+          {navOptions}
+          <NavBtn button="DIY" />
+          <Link className="cursor-pointer block px-2 py-1 text-white font-semibold rounded hover:bg-indigo-600  md:ml-4">
             <i className="fa-solid fa-cart-shopping "></i>
           </Link>
-          <h1
-            data-te-dropdown-toggle-ref
-            aria-expanded="false"
-            id="dropdownMenuButton"
-            className=" cursor-pointer block px-2 py-1 text-white font-semibold rounded hover:bg-gray-700 md:ml-4"
-          >
-            {name}
-          </h1>
-          <ul
-            data-te-dropdown-menu-ref
-            aria-labelledby="dropdownMenuButton"
-            className="absolute z-[1000] float-right m-0 hidden min-w-max list-none overflow-hidden rounded-md border-none bg-white bg-clip-padding text-base shadow-lg [&[data-te-dropdown-show]]:block"
-          >
-            <Link
-              className=" cursor-pointer block text-gray-700 hover:text-white font-semibold rounded hover:bg-indigo-500 md:py-4 md:px-4"
-              to={"/profile"}
-            >
-              Profile
-            </Link>
-            <Link
-              className="cursor-pointer block px-2 py-1 text-gray-700 hover:text-white font-semibold rounded hover:bg-indigo-500 md:py-4 md:px-4"
-              to={"/"}
-            >
-              Orders
-            </Link>
-            <button
-              className="cursor-pointer block px-2 py-1 text-gray-700 hover:text-white font-semibold rounded hover:bg-indigo-500 md:py-4 md:px-4"
-              onClick={logOut}
-            >
-              Log Out
-            </button>
-          </ul>
+          {cookieValue == undefined && (
+            <NavBtn button="Sign In" route="login" />
+          )}
+          {cookieValue != undefined && <UserBtn button={name} />}
         </nav>
       </header>
     </div>

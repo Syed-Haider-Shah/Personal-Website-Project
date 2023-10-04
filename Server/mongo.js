@@ -21,7 +21,49 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  postcode: {
+    type: String,
+    required: false,
+    length: 4,
+  },
+  state: {
+    type: String,
+    required: false,
+  },
+  country: {
+    type: String,
+    required: false,
+  },
+  choice: {
+    type: String,
+    required: true,
+  },
 });
+
+/*const conSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: true,
+    lowercase: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  state: {
+    type: String,
+    required: true,
+  },
+  country: {
+    type: String,
+    required: true,
+  },
+});*/
+
 const userCollection = mongoose.model("userCollection", userSchema);
 
 const collection = {
