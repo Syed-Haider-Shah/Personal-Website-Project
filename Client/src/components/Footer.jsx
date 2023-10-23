@@ -7,71 +7,176 @@ export default function Footer() {
       <footer className="text-gray-600 body-font bg-gray-200">
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-wrap md:text-left text-center order-first">
-            <div className="lg:w-1/4 md:w-1/2 w-full px-4">
+            <div className="lg:w-1/5 md:w-1/2 w-full px-4">
               <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
-                See All Categories
+                Explore
               </h2>
               <nav className="list-none mb-10">
                 <li>
-                  <a
-                    href="https://www.youtube.com/@techywebdev8393"
-                    className="text-gray-600 hover:text-gray-800"
-                  >
-                    YT Channel
+                  <a href="" className="text-gray-600 hover:text-gray-800">
+                    Get Started
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="https://www.youtube.com/@techywebdev8393"
-                    className="text-gray-600 hover:text-gray-800"
-                  >
-                    Twitter
+                  <a href="" className="text-gray-600 hover:text-gray-800">
+                    Inspiration
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="https://www.youtube.com/@techywebdev8393"
-                    className="text-gray-600 hover:text-gray-800"
-                  >
-                    Featured!
+                  <a href="" className="text-gray-600 hover:text-gray-800">
+                    Projects
+                  </a>
+                </li>
+                <li>
+                  <a href="" className="text-gray-600 hover:text-gray-800">
+                    Products
+                  </a>
+                </li>
+                <li>
+                  <a href="" className="text-gray-600 hover:text-gray-800">
+                    Providers
+                  </a>
+                </li>
+                <li>
+                  <a href="" className="text-gray-600 hover:text-gray-800">
+                    DIY
+                  </a>
+                </li>
+                <li>
+                  <a href="" className="text-gray-600 hover:text-gray-800">
+                    RenoPilot TV
+                  </a>
+                </li>
+                <li>
+                  <a href="" className="text-gray-600 hover:text-gray-800">
+                    FAQs
                   </a>
                 </li>
               </nav>
             </div>
-            <div className="lg:w-1/4 md:w-1/2 w-full px-4">
+            <div className="lg:w-1/5 md:w-1/2 w-full px-4">
               <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
-                Policy
+                Become
               </h2>
               <nav className="list-none mb-10">
                 <li>
-                  <a className="text-gray-600 hover:text-gray-800">
-                    Return Policy
+                  <a href="" className="text-gray-600 hover:text-gray-800">
+                    A Provider
                   </a>
                 </li>
                 <li>
-                  <a className="text-gray-600 hover:text-gray-800">
-                    Privacy Policy
-                  </a>
-                </li>
-                <li>
-                  <a className="text-gray-600 hover:text-gray-800">
-                    Terms and Conditions
+                  <a href="" className="text-gray-600 hover:text-gray-800">
+                    A Contributor
                   </a>
                 </li>
               </nav>
             </div>
 
-            <div className="lg:w-1/4 md:w-1/2 w-full px-4">
+            <div className="lg:w-1/5 md:w-1/2 w-full px-4">
               <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
-                CONTACT US :
+                Resources
               </h2>
-              <div className="flex xl:flex-nowrap md:flex-nowrap lg:flex-wrap flex-wrap justify-center items-end md:justify-start">
-                <Link to={"/contact"}>
-                  <button className="lg:mt-2 xl:mt-0 flex-shrink-0 inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
-                    Contact Form
-                  </button>
-                </Link>
-              </div>
+              <nav className="list-none mb-10">
+                <li>
+                  <a href="" className="text-gray-600 hover:text-gray-800">
+                    Explanatory Videos
+                  </a>
+                </li>
+                <li>
+                  <a href="" className="text-gray-600 hover:text-gray-800">
+                    Partners
+                  </a>
+                </li>
+                <li>
+                  <a href="" className="text-gray-600 hover:text-gray-800">
+                    Blog
+                  </a>
+                </li>
+                <li>
+                  <a href="" className="text-gray-600 hover:text-gray-800">
+                    Community
+                  </a>
+                </li>
+                <li>
+                  <a href="" className="text-gray-600 hover:text-gray-800">
+                    Forum
+                  </a>
+                </li>
+                <li>
+                  <a href="" className="text-gray-600 hover:text-gray-800">
+                    Events
+                  </a>
+                </li>
+              </nav>
+            </div>
+
+            <div className="lg:w-1/5 md:w-1/2 w-full px-4">
+              <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
+                Company
+              </h2>
+              <nav className="list-none mb-10">
+                <li>
+                  <Link
+                    to="/aboutus"
+                    className="text-gray-600 hover:text-gray-800"
+                  >
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <a href="" className="text-gray-600 hover:text-gray-800">
+                    Careers
+                  </a>
+                </li>
+                <li>
+                  <a href="" className="text-gray-600 hover:text-gray-800">
+                    Leadership
+                  </a>
+                </li>
+                <li>
+                  <a href="" className="text-gray-600 hover:text-gray-800">
+                    Website terms of use
+                  </a>
+                </li>
+                <li>
+                  <a href="" className="text-gray-600 hover:text-gray-800">
+                    Privacy policy
+                  </a>
+                </li>
+                <li>
+                  <a href="" className="text-gray-600 hover:text-gray-800">
+                    Cookie preferences
+                  </a>
+                </li>
+                <li>
+                  <a href="" className="text-gray-600 hover:text-gray-800">
+                    Careers
+                  </a>
+                </li>
+              </nav>
+            </div>
+
+            <div className="lg:w-1/5 md:w-1/2 w-full px-4">
+              <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
+                Contact Us
+              </h2>
+              <nav className="list-none mb-10">
+                <li>
+                  <a href="" className="text-gray-600 hover:text-gray-800">
+                    General Inquiries
+                  </a>
+                </li>
+                <li>
+                  <a href="" className="text-gray-600 hover:text-gray-800">
+                    Commercial Questions
+                  </a>
+                </li>
+                <li>
+                  <a href="" className="text-gray-600 hover:text-gray-800">
+                    Help
+                  </a>
+                </li>
+              </nav>
             </div>
           </div>
         </div>
@@ -79,13 +184,13 @@ export default function Footer() {
           <div className="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col md:justify-between ">
             <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900 ">
               <img
-                className="h-8 md:h-20  md:mt-1 md:mb-1"
-                src="/src/components/Images/logo.png"
+                style={{ width: "250px" }}
+                src="/src/components/Images/RenoPilot_Logo.png"
                 alt=""
               />
             </a>
             <p className="text-sm text-white sm:ml-6 sm:mt-0 mt-4  justify-end">
-              © 2023 Reno Pilots
+              © 2023 RenoPilot. All rights reserved. Website by URSA Consulting
             </p>
           </div>
         </div>

@@ -1,11 +1,56 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
+import { ToastContainer, toast } from "react-toastify";
+import axios from "axios";
+import Cookies from "js-cookie";
 
 export default function Login() {
+  const [captchaValue, setCaptchaValue] = useState(null);
+
+  //this is only a temporary storage so it can be trasported to server
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  //submit sends formData to backend for verification
+  const submit = async (e) => {
+    e.preventDefault();
+
+    try {
+      if (!captchaValue) {
+        toast.error("Fill the Captcha");
+      } else {
+        await axios
+          .post("http://127.0.0.1:8000/login", {
+            formData,
+          })
+          .then((res) => {
+            if (res.data == "loginPass") {
+              Cookies.set("email", formData.email, { expires: 7 }); //generating cookies
+              toast.success("Successfully Logged in");
+            } else if (res.data == "nouser") {
+              toast.error("This email is not registered");
+            } else if (res.data == "loginFail") {
+              toast.error("Invalid Credentials");
+            } else if (res.data == "fail") {
+              toast.error("Somethig went wrong!");
+            }
+          })
+          .catch(() => {
+            toast.error("Somethig went wrong!1");
+          });
+      }
+    } catch (e) {
+      toast.error("Somethig went wrong!2");
+    }
+  };
+
   return (
     <div className="">
-      <form action="POST" method="/login">
+      <form action="POST" method="/login" onSubmit={submit}>
         <section className="text-gray-600 body-font relative grid place-items-center py-32">
           <div className="absolute inset-0 bg-gray-300"></div>
 
@@ -20,9 +65,17 @@ export default function Login() {
                 htmlFor="email"
                 className="leading-7 text-sm text-gray-600"
               >
-                Username or Email
+                Email
               </label>
               <input
+                required
+                value={formData.email}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    [e.target.name]: e.target.value,
+                  })
+                }
                 type="email"
                 id="email"
                 name="email"
@@ -31,28 +84,39 @@ export default function Login() {
             </div>
             <div className="relative mb-4">
               <label
-                htmlFor="email"
+                htmlFor="password"
                 className="leading-7 text-sm text-gray-600"
               >
                 Password
               </label>
               <input
-                type="email"
-                id="email"
-                name="email"
+                required
+                value={formData.password}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    [e.target.name]: e.target.value,
+                  })
+                }
+                type="password"
+                id="password"
+                name="password"
                 className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
             </div>
             <ReCAPTCHA
               className="py-5"
               sitekey="6LdjJfMnAAAAAJA8J2HzOhrQrocs83XUzjBA8IQp"
+              onChange={(value) => setCaptchaValue(value)}
             />
             <input
-              className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+              className="text-white cursor-pointer bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
               type="submit"
               value="Log In"
             />
-
+            <Link to={"/forget"} className="text-base text-red-500 mt-3">
+              Forgot Password?
+            </Link>
             <p className="text-base mt-3">Don't have an account?</p>
             <p className="text-base text-blue-700 mt-3">
               <Link to={"/signup"}>Register New Account</Link>
