@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -46,11 +46,12 @@ export default function Footer() {
                   <a href="" className="text-gray-600 hover:text-gray-800">
                     RenoPilot TV
                   </a>
-              </li>
-              <li><a href="" className="text-gray-600 hover:text-gray-800">
+                </li>
+                <li>
+                  <a href="" className="text-gray-600 hover:text-gray-800">
                     FAQs
                   </a>
-                  </li>
+                </li>
               </nav>
             </div>
             <div className="lg:w-1/5 md:w-1/2 w-full px-4">
@@ -68,7 +69,6 @@ export default function Footer() {
                     A Contributor
                   </a>
                 </li>
-                
               </nav>
             </div>
 
@@ -116,16 +116,20 @@ export default function Footer() {
               </h2>
               <nav className="list-none mb-10">
                 <li>
-                <Link to="/about" className="text-gray-600 hover:text-gray-800">
-                  About Us
-                </Link>
+                  <Link
+                    to="/aboutus"
+                    className="text-gray-600 hover:text-gray-800"
+                  >
+                    About Us
+                  </Link>
                 </li>
-                <li><a href="" className="text-gray-600 hover:text-gray-800">
+                <li>
+                  <a href="" className="text-gray-600 hover:text-gray-800">
                     Careers
                   </a>
-                  </li>
+                </li>
                 <li>
-                <a href="" className="text-gray-600 hover:text-gray-800">
+                  <a href="" className="text-gray-600 hover:text-gray-800">
                     Leadership
                   </a>
                 </li>
@@ -172,25 +176,21 @@ export default function Footer() {
                     Help
                   </a>
                 </li>
-                
               </nav>
             </div>
-
-            
           </div>
         </div>
         <div className="bg-gray-800 ">
           <div className="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col md:justify-between ">
             <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900 ">
               <img
-                
                 style={{ width: "250px" }}
                 src="/src/components/Images/RenoPilot_Logo.png"
                 alt=""
               />
             </a>
             <p className="text-sm text-white sm:ml-6 sm:mt-0 mt-4  justify-end">
-            © 2023 RenoPilot. All rights reserved. Website by URSA Consulting
+              © 2023 RenoPilot. All rights reserved. Website by URSA Consulting
             </p>
           </div>
         </div>
