@@ -184,10 +184,10 @@ export default function SignupHO() {
                 Log in
               </Link>
             </div>
-            <p className="text-base mt-3">
+            <p className="text-sm mt-3">
               Would you like to receive messages about products and specials
               from our providers of goods & services?{" "}
-              <Link className="text-base text-blue-700 mt-3" to={"/"}>
+              <Link className="text-sm text-blue-700 mt-3" to={"/"}>
                 yes of course!
               </Link>
             </p>
