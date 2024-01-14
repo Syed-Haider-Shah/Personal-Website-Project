@@ -27,7 +27,7 @@ const Background = () => {
           className="absolute inset-0 "
         >
           <img
-            src="/src/components/Images/back5.jpg"
+            src="/src/components/Images/back1.jpg"
             alt="Background"
             className="w-full h-[90%] object-cover"
           />

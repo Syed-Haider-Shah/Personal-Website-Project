@@ -160,7 +160,7 @@ export default function Navbar() {
           </form>
 
           {/* buttons on right*/}
-          <NavBtn button="Image Slider" />
+          <NavBtn button="Image Slider" route="/slider" />
           <NavBtn button="Profile Keys" />
           <NavBtn button="Items Display" />
           <NavBtn button="About Us" route="aboutus" />
