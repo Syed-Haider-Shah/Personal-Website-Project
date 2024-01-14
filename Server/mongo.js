@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 mongoose
   .connect(
-    "mongodb+srv://mongodbuser:haider1@renopilots.zbs1ksa.mongodb.net/?retryWrites=true&w=majority"
+    "mongodb+srv://mongodbuser:haider1@renopilots.zbs1ksa.mongodb.net/?retryWrites=true&w=majority/RenoPilot"
   )
   .then(() => {
     console.log("mongo connected");
@@ -42,30 +42,6 @@ const userSchema = new mongoose.Schema({
     required: true,
   },
 });
-
-/*const conSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  email: {
-    type: String,
-    required: true,
-    lowercase: true,
-  },
-  password: {
-    type: String,
-    required: true,
-  },
-  state: {
-    type: String,
-    required: true,
-  },
-  country: {
-    type: String,
-    required: true,
-  },
-});*/
 
 const userCollection = mongoose.model("userCollection", userSchema);
 
