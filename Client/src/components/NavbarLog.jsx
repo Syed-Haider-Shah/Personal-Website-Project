@@ -117,7 +117,7 @@ export default function Navbar() {
             {/* Clicking the logo takes you to the home page */}
             <Link to={"/"}>
               <img
-                src="public/logo.svg"
+                src="/logo.svg"
                 alt="Logo"
                 className=" w-full cursor-pointer md:mt-1 md:mb-1"
               />

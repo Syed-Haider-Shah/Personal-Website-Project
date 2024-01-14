@@ -1,11 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import NavBtn from "./NavBtn";
 import { useState } from "react";
 
 export default function UserBtn({ button, route }) {
-  const logOut = () => {
+  const nav = useNavigate();
+  const logOut = async () => {
     Cookies.remove("email");
+    await nav("/");
   };
   const [dropdown, showDropdown] = useState(false);
 
