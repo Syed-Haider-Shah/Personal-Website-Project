@@ -14,7 +14,6 @@ app.post("/account", async (req, res) => {
   try {
     const email = req.body.cookieValue;
     const check = await userCollection.findOne({ email: email });
-    console.log(check.choice);
     res.json(check);
   } catch (e) {}
 });
@@ -156,14 +155,14 @@ app.post("/login", async (req, res) => {
     if (!Object.keys(check1).length == 0) {
       if (!Object.keys(check2).length == 0) {
         res.json("loginPass");
-        //  console.log(check2);
+        console.log("loginpass");
       } else {
         res.json("loginFail");
-        console.log(check2);
+        console.log("loginfail");
       }
     } else {
       res.json("nouser");
-      // console.log(check2);
+      console.log("nogthing");
     }
   } catch (e) {
     res.json("fail");
