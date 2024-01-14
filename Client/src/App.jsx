@@ -99,7 +99,6 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/forget" element={<Forget />} />
           <Route path="/providerpage" element={<ProviderPage />} />
-          <Route path="/aboutus" element={<AboutUs />} />
         </Routes>
         <Footer />
       </div>
