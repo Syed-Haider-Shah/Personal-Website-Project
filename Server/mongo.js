@@ -1,12 +1,15 @@
 const mongoose = require("mongoose");
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/renopilots") //new node version doesnt accept keyword  localhost, be careful!
+  .connect(
+    "mongodb+srv://mongodbuser:haider1@renopilots.zbs1ksa.mongodb.net/?retryWrites=true&w=majority"
+  )
   .then(() => {
     console.log("mongo connected");
   })
   .catch((error) => {
     console.log(error);
+    console.log("Failed to Connect");
   });
 const userSchema = new mongoose.Schema({
   name: {
