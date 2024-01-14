@@ -44,21 +44,21 @@ const Background = () => {
   const parallaxOffset = scrollY * 0.3;
 
   return (
-    <div>
+    <div className="overflow-x-hidden pb-40 bg-gray-100">
       <section className="h-screen">
         <div
           style={{ transform: `translateY(${parallaxOffset}px)` }}
           className="absolute inset-0 "
         >
           <img
-            src="/src/components/Images/back5.jpg"
+            src="/art11.jpg"
             alt="Background"
             className="w-full h-[90%] object-cover"
           />
           <div
             className={`absolute top-[22%] left-[52%] transform -translate-x-[55%] bg-transparent text-center z-10`}
           >
-            <h1 className="text-5xl font-bold text-white ">
+            <h1 className="text-5xl font-bold text-white">
               Provider&apos;s Portal
             </h1>
           </div>
@@ -95,7 +95,7 @@ const Background = () => {
             <div
               className={`${
                 scrolled
-                  ? "bg-white shadow-lg text-indigo-500"
+                  ? "bg-white shadow-lg text-primary"
                   : "bg-transparent text-transparent"
               } pt-3 h-80 w-[80%] mt-[6rem] rounded flex justify-center transition duration-300`}
             >

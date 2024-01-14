@@ -8,7 +8,7 @@ import classnames from "classnames";
 
 const PageColors = [
   { link: "/", color: "bg-slate-700", initialColor: "bg-transparent" },
-  { link: "/signuppro", color: "bg-slate-700", initialColor: "bg-transparent" },
+  { link: "/signuppro", color: "bg-primary", initialColor: "bg-transparent" },
 ];
 
 export default function Navbar() {
@@ -99,12 +99,12 @@ export default function Navbar() {
   };
 
   return (
-    <div className="sticky top-0 z-50">
+    <div className="sticky top-0 z-50 ">
       {/*used md: for minimum width for phone*/}
       {/*header controls entire the nav*/}
       <header
         className={classnames(
-          "md:flex md:justify-between md:items-center md:pl-52 md:pr-52 md:px-4 md:py-0 text-white transition-all duration-300",
+          "md:flex md:justify-between md:items-center md:pl-52 md:pr-52 md:px-4 md:py-2 text-white transition-all duration-300 overflow-hidden",
           {
             [`py-6 shadow-lg ${pageOption.color}`]: scrolled,
             [pageOption.initialColor]: !scrolled,
@@ -112,12 +112,12 @@ export default function Navbar() {
         )}
       >
         {/*following code controls the left side of nav */}
-        <div className="flex items-center justify-between px-0 py-1 md:p-0">
-          <div className="w-96">
+        <div className="flex items-center justify-between px-0 py-2 md:p-0">
+          <div className="w-52">
             {/* Clicking the logo takes you to the home page */}
             <Link to={"/"}>
               <img
-                src="/src/components/Images/logo.png"
+                src="/logo.svg"
                 alt="Logo"
                 className=" w-full cursor-pointer md:mt-1 md:mb-1"
               />
@@ -133,7 +133,7 @@ export default function Navbar() {
         {/* nav bar children design, it form which is search bar and the search button and 3 other buttons*/}
         {/*nav tag controls the position of text on the right side in nav*/}
         <nav
-          className={`  px-3 pt-1 pb-1 md:flex ${
+          className={`  px-20 pt-1 pb-1 md:flex  ${
             showMenu ? "block" : "hidden"
           }`}
         >
@@ -152,7 +152,7 @@ export default function Navbar() {
 
               <button
                 type="submit"
-                className=" text-white bg-indigo-500  px-4 focus:outline-none hover:bg-indigo-600  cursor-pointer  border-gray-200  border-solid rounded-lg ml-0"
+                className=" text-white bg-indigo-500  px-4 focus:outline-none hover:bg-indigo-600  cursor-pointer  border-gray-200  border-solid rounded-lg mr-2"
               >
                 <i className="fa-solid fa-magnifying-glass w-[20px]"></i>
               </button>
@@ -160,20 +160,18 @@ export default function Navbar() {
           </form>
 
           {/* buttons on right*/}
-          <NavBtn button="Projects" />
-          <NavBtn button="Inspiration" />
-          <NavBtn button="Products" />
-          <NavBtn button="Design" />
-          <NavBtn button="Cost" />
+          <NavBtn button="Image Slider" />
+          <NavBtn button="Profile Keys" />
+          <NavBtn button="Items Display" />
           <NavBtn button="About Us" route="aboutus" />
           {navOptions}
-          <NavBtn button="DIY" />
           <Link className="cursor-pointer block px-2 py-1 text-white font-semibold rounded hover:bg-indigo-600  md:ml-4">
             <i className="fa-solid fa-cart-shopping "></i>
           </Link>
           {cookieValue == undefined && (
             <NavBtn button="Sign In" route="login" />
           )}
+
           {cookieValue != undefined && <UserBtn button={name} />}
         </nav>
       </header>

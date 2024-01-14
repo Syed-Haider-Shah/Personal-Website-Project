@@ -20,7 +20,6 @@ import SignupPro from "./components/SignupPro";
 import ProPortal from "./components/ProPortal";
 import ConPortal from "./components/ConPortal";
 import ProviderPage from "./components/ProviderPage";
-import AboutUs from "./components/Pages/About us";
 
 function App() {
   const [cookieValue, setCookieValue] = useState(Cookies.get("email"));
@@ -99,7 +98,6 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/forget" element={<Forget />} />
           <Route path="/providerpage" element={<ProviderPage />} />
-          <Route path="/aboutus" element={<AboutUs />} />
         </Routes>
         <Footer />
       </div>

@@ -1,11 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import NavBtn from "./NavBtn";
 import { useState } from "react";
 
 export default function UserBtn({ button, route }) {
-  const logOut = () => {
+  const nav = useNavigate();
+  const logOut = async () => {
     Cookies.remove("email");
+    await nav("/");
   };
   const [dropdown, showDropdown] = useState(false);
 
@@ -13,12 +15,12 @@ export default function UserBtn({ button, route }) {
     <div className="">
       <div
         onClick={() => showDropdown((val) => !val)}
-        className="flex items-center"
+        className="flex items-center w-96"
       >
         <NavBtn button={button} />
       </div>
       <div
-        className={`mt-2 absolute bg-white w-[7rem] flex-col shadow-lg rounded-lg ${
+        className={` mt-2 absolute bg-white w-[7rem] flex-col shadow-lg rounded-lg ${
           dropdown ? "block" : "hidden"
         }`}
       >

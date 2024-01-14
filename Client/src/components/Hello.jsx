@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import axios from "axios";
 
@@ -27,9 +27,10 @@ export default function Hello() {
   useEffect(() => {
     submit();
   }, [cookieValue]);
-
-  const logOut = () => {
+  const nav = useNavigate();
+  const logOut = async () => {
     Cookies.remove("email");
+    await nav("/");
   };
   const [isHovering1, setIsHovering1] = useState(false);
   const [isHovering2, setIsHovering2] = useState(false);

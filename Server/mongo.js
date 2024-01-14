@@ -43,30 +43,6 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-/*const conSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  email: {
-    type: String,
-    required: true,
-    lowercase: true,
-  },
-  password: {
-    type: String,
-    required: true,
-  },
-  state: {
-    type: String,
-    required: true,
-  },
-  country: {
-    type: String,
-    required: true,
-  },
-});*/
-
 const userCollection = mongoose.model("userCollection", userSchema);
 
 const collection = {
