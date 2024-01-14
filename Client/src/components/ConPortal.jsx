@@ -9,7 +9,7 @@ export default function ConPortal() {
         </h1>
         <h2 className="mb-8 font-bold text-xl"></h2>
         <div className=" text-gray-600 flex items-center px-10 mt-6 mb-6">
-          <Link className="pb-12 hover:-translate-y-5 border-2 text-center hover:border-indigo-700 border-gray-200 -translate-x-10 bg-white text-slate-600 w-96 min-h-[10rem] hover:shadow-lg rounded-md overflow-hidden">
+          <Link className="pb-12 hover:-translate-y-5 border-2 text-center transition-all hover:border-indigo-700 border-gray-200 -translate-x-10 bg-white text-slate-600 w-96 min-h-[10rem] hover:shadow-lg rounded-md overflow-hidden">
             <img
               src="/src/components/Images/back4.jpg"
               alt="Background"
@@ -21,14 +21,14 @@ export default function ConPortal() {
                   INSPIRATION
                 </h2>
               </div>
-              <p1>
+              <p1 className="text-sm mt-2">
                 Collaborate with fellow contributors to craft innovative
                 template designs that can inspire and guide homeowners in their
                 creative endeavors.
               </p1>
             </div>
           </Link>
-          <Link className="hover:-translate-y-5 border-2 text-center hover:border-indigo-700 border-gray-200 translate-x-10 bg-white text-slate-600 w-96 min-h-[10rem] hover:shadow-lg rounded-md overflow-hidden">
+          <Link className="transition-all hover:-translate-y-5 border-2 text-center hover:border-indigo-700 border-gray-200 translate-x-10 bg-white text-slate-600 w-96 min-h-[10rem] hover:shadow-lg rounded-md overflow-hidden">
             <img
               src="/src/components/Images/back1.jpg"
               alt="Background"
@@ -40,7 +40,7 @@ export default function ConPortal() {
                   DYI
                 </h2>
               </div>
-              <p1>
+              <p1 className="text-sm">
                 Empower homeowners to take charge of their own home improvement
                 projects by providing comprehensive guides and tutorials that
                 simplify the process and enable them to confidently tackle home

@@ -20,7 +20,7 @@ const Background = () => {
   const parallaxOffset = scrollY * 0.3;
 
   return (
-    <div>
+    <div className="mb-40">
       <section className="h-screen">
         <div
           style={{ transform: `translateY(${parallaxOffset}px)` }}
@@ -51,7 +51,7 @@ const Background = () => {
       </section>
       <section className="bg-grey-500">
         <div
-          className="relative w-[96%] left-[2%] right-[2%] -mt-40 h-screen rounded-lg z-10 mb-11 bg-slate-600"
+          className="relative w-[96%] left-[2%] right-[2%] -mt-80 h-screen rounded-lg z-10 mb-11 bg-slate-600"
           style={{
             borderRadius: "irem",
             /* The box shadow profile is for shadow over the grey box ordered in Top - bottom (0, 0, 0) is the RGB*/

@@ -6,6 +6,10 @@ export default {
       translate: {
         cardHeight: "10rem", // 160px
       },
+      colors: {
+        primary: "#815487",
+        secondary: `#444444`,
+      },
     },
   },
   plugins: [],
