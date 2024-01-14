@@ -116,10 +116,7 @@ export default function Footer() {
               </h2>
               <nav className="list-none mb-10">
                 <li>
-                  <Link
-                    to="/aboutus"
-                    className="text-gray-600 hover:text-gray-800"
-                  >
+                  <Link to="/" className="text-gray-600 hover:text-gray-800">
                     About Us
                   </Link>
                 </li>

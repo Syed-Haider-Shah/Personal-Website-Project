@@ -160,14 +160,11 @@ export default function Navbar() {
           </form>
 
           {/* buttons on right*/}
-          <NavBtn button="Projects" />
-          <NavBtn button="Inspiration" />
-          <NavBtn button="Products" />
-          <NavBtn button="Design" />
-          <NavBtn button="Cost" />
+          <NavBtn button="Image Slider" />
+          <NavBtn button="Profile Keys" />
+          <NavBtn button="Items Display" />
           <NavBtn button="About Us" route="aboutus" />
           {navOptions}
-          <NavBtn button="DIY" />
           <Link className="cursor-pointer block px-2 py-1 text-white font-semibold rounded hover:bg-indigo-600  md:ml-4">
             <i className="fa-solid fa-cart-shopping "></i>
           </Link>
