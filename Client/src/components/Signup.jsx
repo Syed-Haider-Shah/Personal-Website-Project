@@ -8,11 +8,6 @@ import Cookies from "js-cookie";
 export default function Signup() {
   const [captchaValue, setCaptchaValue] = useState(null);
 
-  // const canvasRef = useRef(null);
-  // const [inp, setInp] = useState('');
-
-  const history = useNavigate();
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
 import { ToastContainer, toast } from "react-toastify";
@@ -7,6 +7,9 @@ import Cookies from "js-cookie";
 
 export default function Login() {
   const [captchaValue, setCaptchaValue] = useState(null);
+  const [cookieValue, setCookieValue] = useState("");
+  const [choice, setType] = useState("");
+  const nav = useNavigate();
 
   //this is only a temporary storage so it can be trasported to server
   const [formData, setFormData] = useState({
@@ -29,7 +32,8 @@ export default function Login() {
           })
           .then((res) => {
             if (res.data == "loginPass") {
-              Cookies.set("email", formData.email, { expires: 7 }); //generating cookies
+              Cookies.set("email", formData.email, { expires: 7 });
+              setCookieValue(Cookies.get("email")); //generating cookies
               toast.success("Successfully Logged in");
             } else if (res.data == "nouser") {
               toast.error("This email is not registered");
@@ -47,6 +51,34 @@ export default function Login() {
       toast.error("Somethig went wrong!2");
     }
   };
+  const choiceAssigner = async () => {
+    try {
+      await axios
+        .post("http://127.0.0.1:8000/account", {
+          cookieValue,
+        })
+        .then((res) => {
+          setType(res.data.choice);
+        })
+        .catch(() => {});
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    choiceAssigner();
+  }, [cookieValue]);
+
+  useEffect(() => {
+    if (choice === "provider") {
+      nav("/proportal");
+    } else if (choice === "contributor") {
+      nav("/contributor");
+    } else if (choice === "homeowner") {
+      nav("/homeowner");
+    }
+  }, [choice]);
 
   return (
     <div className="">

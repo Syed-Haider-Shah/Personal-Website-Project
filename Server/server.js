@@ -12,8 +12,10 @@ app.get("/", cors(), (req, res) => {});
 
 app.post("/account", async (req, res) => {
   try {
+    console.log("cookie: ", req.body.cookieValue);
     const email = req.body.cookieValue;
     const check = await userCollection.findOne({ email: email });
+    console.log("check: ", req.body.cookieValue);
     res.json(check);
   } catch (e) {}
 });

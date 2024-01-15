@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
 import { ToastContainer, toast } from "react-toastify";
@@ -7,9 +7,9 @@ import Cookies from "js-cookie";
 
 export default function SignupCon() {
   const [captchaValue, setCaptchaValue] = useState(null);
+  const [cookieValue, setCookieValue] = useState("");
 
-  const history = useNavigate();
-
+  var nav = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -18,6 +18,7 @@ export default function SignupCon() {
   });
   const [state, setState] = useState("");
   const [country, setCountry] = useState("");
+  const [choice2, setType] = useState("");
   const choice = "contributor";
 
   //this is also where we check the acceptable values for form, ie password and cpassword match etc
@@ -45,6 +46,7 @@ export default function SignupCon() {
               toast.error("Email is already registered");
             } else if (res.data == "notexist") {
               Cookies.set("email", formData.email, { expires: 7 }); //generate cookie
+              setCookieValue(Cookies.get("email"));
               toast.success("Successfully Registered");
             }
           });
@@ -53,6 +55,30 @@ export default function SignupCon() {
       console.log(error);
     }
   };
+  useEffect(() => {
+    if (choice2 === "contributor") {
+      nav("/contributor");
+    }
+  }, [choice2]);
+
+  const choiceAssigner = async () => {
+    try {
+      await axios
+        .post("http://127.0.0.1:8000/account", {
+          cookieValue,
+        })
+        .then((res) => {
+          setType(res.data.choice);
+        })
+        .catch(() => {});
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    choiceAssigner();
+  }, [cookieValue]);
 
   return (
     <div className="">

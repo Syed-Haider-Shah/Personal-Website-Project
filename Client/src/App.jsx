@@ -23,40 +23,6 @@ import ProviderPage from "./components/ProviderPage";
 import ImageSlider from "./components/ImageSlider";
 
 function App() {
-  const [cookieValue, setCookieValue] = useState(Cookies.get("email"));
-  const [name, setName] = useState("");
-  const [choice, setType] = useState("");
-
-  //checks the status of cookies(whether logged in or not)
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const updatedCookieValue = Cookies.get("email");
-      if (updatedCookieValue !== cookieValue) {
-        setCookieValue(updatedCookieValue);
-      }
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [cookieValue]);
-
-  const submit = async () => {
-    try {
-      await axios
-        .post("http://127.0.0.1:8000/account", {
-          cookieValue,
-        })
-        .then((res) => {
-          setName(res.data.name);
-          setType(res.data.choice);
-        })
-        .catch(() => {});
-    } catch (e) {
-      console.log(e);
-    }
-  };
-  useEffect(() => {
-    submit();
-  }, [cookieValue]);
-
   return (
     <BrowserRouter>
       <div className="App">
@@ -64,37 +30,14 @@ function App() {
         <Navbar />
 
         <Routes>
-          {cookieValue == undefined && (
-            <Route path="/login" element={<Login />} />
-          )}
-          {choice == "provider" && (
-            <Route path="/login" element={<ProPortal />} />
-          )}
-          {choice == "contributor" && (
-            <Route path="/login" element={<ConPortal />} />
-          )}
-          {choice == "homeowner" && <Route path="/login" element={<Hello />} />}
-          {cookieValue == undefined && (
-            <Route path="/signup" element={<Selector />} />
-          )}
-          {cookieValue == undefined && (
-            <Route path="/signupho" element={<SignupHO />} />
-          )}
-          {cookieValue != undefined && (
-            <Route path="/signupho" element={<Hello />} />
-          )}
-          {cookieValue == undefined && (
-            <Route path="/signupcon" element={<SignupCon />} />
-          )}
-          {cookieValue != undefined && (
-            <Route path="/signupcon" element={<ConPortal />} />
-          )}
-          {cookieValue == undefined && (
-            <Route path="/signuppro" element={<SignupPro />} />
-          )}
-          {cookieValue != undefined && (
-            <Route path="/signuppro" element={<ProPortal />} />
-          )}
+          <Route path="/login" element={<Login />} />
+          <Route path="/proportal" element={<ProPortal />} />
+          <Route path="/contributor" element={<ConPortal />} />
+          <Route path="/homeowner" element={<Hello />} />
+          <Route path="/signup" element={<Selector />} />
+          <Route path="/signupho" element={<SignupHO />} />
+          <Route path="/signupcon" element={<SignupCon />} />
+          <Route path="/signuppro" element={<SignupPro />} />
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/forget" element={<Forget />} />

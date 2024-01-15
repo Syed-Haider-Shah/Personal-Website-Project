@@ -4,21 +4,26 @@ import pic3 from "./Images/back3.jpg";
 import pic4 from "./Images/back4.jpg";
 import ImageSliderComp from "./SmlComponents/ImageSliderComp";
 
-const IMAGES = [pic1, pic2, pic3, pic4];
+const IMAGES = [
+  { url: pic1, alt: "Slider Image One" },
+  { url: pic2, alt: "Slider Image Two" },
+  { url: pic3, alt: "Slider Image Three" },
+  { url: pic4, alt: "Slider Image Four" },
+];
 
 const ImageSlider = () => {
   return (
     <>
       <div
-        className="object-cover w-[100%] h-[100%] block"
+        className="object-cover w-[100%] h-[100%] block pb-10"
         style={{
           maxWidth: "1600px",
           width: "100%",
           height: "800px",
-          margin: "0 auto",
+          margin: "3rem auto",
         }}
       >
-        <ImageSliderComp imageUrls={IMAGES} />
+        <ImageSliderComp images={IMAGES} />
       </div>
     </>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
 import { ToastContainer, toast } from "react-toastify";
@@ -7,11 +7,9 @@ import Cookies from "js-cookie";
 
 export default function SignupPro() {
   const [captchaValue, setCaptchaValue] = useState(null);
+  const [cookieValue, setCookieValue] = useState("");
 
-  // const canvasRef = useRef(null);
-  // const [inp, setInp] = useState('');
-
-  const history = useNavigate();
+  const nav = useNavigate();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -20,6 +18,7 @@ export default function SignupPro() {
     cpassword: "",
   });
   const [postcode, setPost] = useState("");
+  const [choice2, setType] = useState("");
   const choice = "provider";
 
   //this is also where we check the acceptable values for form, ie password and cpassword match etc
@@ -47,6 +46,7 @@ export default function SignupPro() {
             } else if (res.data == "notexist") {
               Cookies.set("email", formData.email, { expires: 7 }); //generate cookie
               toast.success("Successfully Registered");
+              setCookieValue(Cookies.get("email"));
             }
           });
       }
@@ -54,6 +54,31 @@ export default function SignupPro() {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    if (choice2 === "provider") {
+      nav("/proportal");
+    }
+  }, [choice2]);
+
+  const choiceAssigner = async () => {
+    try {
+      await axios
+        .post("http://127.0.0.1:8000/account", {
+          cookieValue,
+        })
+        .then((res) => {
+          setType(res.data.choice);
+        })
+        .catch(() => {});
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    choiceAssigner();
+  }, [cookieValue]);
 
   return (
     <div className="">
