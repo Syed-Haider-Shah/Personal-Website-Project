@@ -8,7 +8,7 @@ import classnames from "classnames";
 
 const PageColors = [
   { link: "/", color: "bg-slate-700", initialColor: "bg-transparent" },
-  { link: "/signuppro", color: "bg-primary", initialColor: "bg-transparent" },
+  { link: "/proportal", color: "bg-primary", initialColor: "bg-transparent" },
 ];
 
 export default function Navbar() {
@@ -23,8 +23,6 @@ export default function Navbar() {
     color: "bg-slate-700",
     initialColor: "bg-slate-700",
   };
-
-  console.log(pageOption);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,12 +58,12 @@ export default function Navbar() {
     if (!cookieValue) return null;
     switch (choice) {
       case "provider":
-        return <NavBtn button="Providers" route="signuppro" />;
+        return <NavBtn button="Providers Portal" route="proportal" />;
       case "contributor":
         return (
           <>
             <NavBtn button="Providers Page" route="providerpage" />
-            <NavBtn button="Portal" route="signupcon" />
+            <NavBtn button="Portal" route="contributor" />
           </>
         );
       default:
@@ -119,6 +117,7 @@ export default function Navbar() {
               <img
                 src="/logo.svg"
                 alt="Logo"
+                aria-label="Website Logo"
                 className=" w-full cursor-pointer md:mt-1 md:mb-1"
               />
             </Link>
@@ -160,7 +159,7 @@ export default function Navbar() {
           </form>
 
           {/* buttons on right*/}
-          <NavBtn button="Image Slider" />
+          <NavBtn button="Image Slider" route="/slider" />
           <NavBtn button="Profile Keys" />
           <NavBtn button="Items Display" />
           <NavBtn button="About Us" route="aboutus" />

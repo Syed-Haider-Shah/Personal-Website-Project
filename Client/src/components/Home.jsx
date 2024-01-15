@@ -29,6 +29,7 @@ const Background = () => {
           <img
             src="/src/components/Images/back5.jpg"
             alt="Background"
+            aria-label="Home Page background Image"
             className="w-full h-[90%] object-cover"
           />
           <div
@@ -40,12 +41,12 @@ const Background = () => {
           </div>
           <div className="absolute top-[50%] left-[32%] transform -translate-x-[25%] bg-transparent text-center z-10">
             {/* Title */}
-            <p1 className=" text-2xl text-white">
+            <p className=" text-2xl text-white">
               RenoPilot offers a suite of products for Homeowners undertaking
               property improvement or home renovation projects and for companies
               and individuals who provide the goods and services those projects
               require.
-            </p1>
+            </p>
           </div>
         </div>
       </section>

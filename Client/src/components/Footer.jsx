@@ -180,7 +180,12 @@ export default function Footer() {
         <div className="bg-gray-800 ">
           <div className="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col md:justify-between ">
             <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900 ">
-              <img style={{ width: "250px" }} src="/logo.svg" alt="" />
+              <img
+                style={{ width: "250px" }}
+                src="/logo.svg"
+                alt="logo"
+                aria-label="Website Logo"
+              />
             </a>
             <p className="text-sm text-white sm:ml-6 sm:mt-0 mt-4  justify-end">
               © 2023 RenoPilot. All rights reserved. Website by URSA Consulting
