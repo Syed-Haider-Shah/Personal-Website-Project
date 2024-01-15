@@ -9,7 +9,13 @@ const ItemDisplay = () => {
       </div>
       <div className="flex gap-10 m-40 place-items-center justify-center">
         {PRODUCTS.map((product) => (
-          <Product key={product.id} data={product} />
+          <Product
+            key={product.id}
+            id={product.id}
+            productName={product.productName}
+            price={product.price}
+            productImage={product.productImage}
+          />
         ))}
       </div>
     </>
