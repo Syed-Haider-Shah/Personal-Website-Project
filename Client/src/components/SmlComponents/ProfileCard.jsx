@@ -1,5 +1,14 @@
 import { Link } from "react-router-dom";
-const ProfileCard = ({ color, title, type, user, pass, photo }) => {
+const ProfileCard = ({
+  color,
+  title,
+  type,
+  user,
+  pass,
+  photo,
+  text1,
+  text2,
+}) => {
   return (
     <>
       <div className="bg-gray-500 relative flex flex-col items-center rounded-md overflow-hidden h-[27rem] w-80 shadow-xl">
@@ -24,10 +33,9 @@ const ProfileCard = ({ color, title, type, user, pass, photo }) => {
         <div className="bg-white h-[70%] flex flex-col items-center pt-12">
           <h className="text-lg font-bold">{title}</h>
           <p className="text-sm text-gray-600 text-center m-6 mt-4 mb-4">
-            Hello! You can use credentials from this card to check out how
+            {text1}
             <span className="font-bold px-1">{type}</span>
-            login view looks like. You can also provide me with feedback with
-            the links below. Thanks for checking out my website!
+            {text2}
           </p>
           <div>
             <div className="text-xs flex gap-2">

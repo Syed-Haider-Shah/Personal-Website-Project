@@ -12,6 +12,9 @@ const ProfileKeys = () => {
             user="homeowner@gmail.com"
             pass="homeowner1"
             photo="/icon1.png"
+            text1="Hello! You can use credentials from this card to check out how"
+            text2="login view looks like. You can also provide me with feedback with
+            the links below. Thanks for checking out my website!"
           />
           <ProfileCard
             color="bg-blue-700"
@@ -20,6 +23,9 @@ const ProfileKeys = () => {
             user="provider@gmail.com"
             pass="provider1"
             photo="/icon2.png"
+            text1="Hello! You can use credentials from this card to check out how"
+            text2="login view looks like. You can also provide me with feedback with
+            the links below. Thanks for checking out my website!"
           />
           <ProfileCard
             color="bg-orange-700"
@@ -28,6 +34,9 @@ const ProfileKeys = () => {
             user="contributor@gmail.com"
             pass="contributor1"
             photo="/icon3.png"
+            text1="Hello! You can use credentials from this card to check out how"
+            text2="login view looks like. You can also provide me with feedback with
+            the links below. Thanks for checking out my website!"
           />
         </div>
       </div>
