@@ -160,11 +160,14 @@ export default function Navbar() {
 
           {/* buttons on right*/}
           <NavBtn button="Image Slider" route="/slider" />
-          <NavBtn button="Profile Keys" />
-          <NavBtn button="Items Display" />
+          <NavBtn button="Profile Keys" route="/profilekeys" />
+          <NavBtn button="Items Display" route="/itemdisplay" />
           <NavBtn button="About Us" route="aboutus" />
           {navOptions}
-          <Link className="cursor-pointer block px-2 py-1 text-white font-semibold rounded hover:bg-indigo-600  md:ml-4">
+          <Link
+            to="/cart"
+            className="cursor-pointer block px-2 py-1 text-white font-semibold rounded hover:bg-indigo-600  md:ml-4"
+          >
             <i className="fa-solid fa-cart-shopping "></i>
           </Link>
           {cookieValue == undefined && (

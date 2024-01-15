@@ -24,10 +24,16 @@ export default function UserBtn({ button, route }) {
           dropdown ? "block" : "hidden"
         }`}
       >
-        <Link className="transition-all block px-2 py-1 text-gray-700 hover:text-white font-semibold rounded hover:bg-indigo-500 md:py-4 md:px-4">
+        <Link
+          to="profile"
+          className="transition-all block px-2 py-1 text-gray-700 hover:text-white font-semibold rounded hover:bg-indigo-500 md:py-4 md:px-4"
+        >
           Profile
         </Link>
-        <Link className="transition-all block px-2 py-1 text-gray-700 hover:text-white font-semibold rounded hover:bg-indigo-500 md:py-4 md:px-4">
+        <Link
+          to="cart"
+          className="transition-all block px-2 py-1 text-gray-700 hover:text-white font-semibold rounded hover:bg-indigo-500 md:py-4 md:px-4"
+        >
           Orders
         </Link>
         <div

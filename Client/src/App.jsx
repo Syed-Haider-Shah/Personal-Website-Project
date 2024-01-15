@@ -21,11 +21,14 @@ import ProPortal from "./components/ProPortal";
 import ConPortal from "./components/ConPortal";
 import ProviderPage from "./components/ProviderPage";
 import ImageSlider from "./components/ImageSlider";
+import ItemDisplay from "./components/ItemDisplay";
+import Cart from "./components/Cart";
+import ProfileKeys from "./components/ProfileKeys";
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
+      <div className="App" className="bg-gray-100">
         <ToastContainer />
         <Navbar />
 
@@ -43,6 +46,10 @@ function App() {
           <Route path="/forget" element={<Forget />} />
           <Route path="/slider" element={<ImageSlider />} />
           <Route path="/providerpage" element={<ProviderPage />} />
+          <Route path="/itemdisplay" element={<ItemDisplay />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/profilekeys" element={<ProfileKeys />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
         <Footer />
       </div>
