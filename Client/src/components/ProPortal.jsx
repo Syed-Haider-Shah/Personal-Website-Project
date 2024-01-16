@@ -56,13 +56,13 @@ const Background = () => {
             className="w-full h-[90%] object-cover"
           />
           <div
-            className={`absolute top-[22%] left-[52%] transform -translate-x-[55%] bg-transparent text-center z-10`}
+            className={`absolute top-[41%] md:top-[22%] left-[52%] transform -translate-x-[55%] bg-transparent text-center z-10`}
           >
-            <h1 className="text-5xl font-bold text-white drop-shadow-2">
+            <h1 className="text-4xl md:text-5xl font-bold text-white drop-shadow-2">
               Provider&apos;s Portal
             </h1>
           </div>
-          <div className="absolute top-[32%] left-[40%] transform -translate-x-[25%] bg-red- w-[50rem] text-center z-10">
+          <div className="hidden md:block absolute top-[32%] left-[40%] transform -translate-x-[25%] bg-red- w-[50rem] text-center z-10">
             {/* Title */}
             <SmlText
               text={`Our mission is to make Providers' lives a little easier by helping
@@ -91,26 +91,26 @@ const Background = () => {
               "0px -20px 30px rgba(0, 0, 0, 0.6), 0px 20px 30px rgba(0, 0, 0, 0.5), 10px 10px 20px rgba(0, 0, 0, 0), -10px 10px 20px rgba(0, 0, 0, 0)",
           }}
         >
-          <section className="flex-col bg-transparent flex items-center justify-center">
+          <section className="flex-row flex-wrap bg-transparent flex items-center justify-center">
             <div
               className={`${
                 scrolled
                   ? "bg-primary shadow-lg text-white"
                   : "bg-transparent text-transparent"
-              } pt-3 h-80 w-[80%] mt-[6rem] rounded-3xl flex justify-center transition duration-300`}
+              }  pt-3 h-48 md:h-80 w-[80%] mt-[6rem] rounded-3xl flex justify-center transition duration-300`}
             >
-              <div className="mt-16 bg-transparent text-center ">
-                <h1 className="p-2 text-4xl font-bold drop-shadow-4">
+              <div className="m-2 md:mt-16 bg-transparent text-center ">
+                <h1 className=" p-2 text-2xl md:text-4xl font-bold drop-shadow-4">
                   Our goal is for Contractors to pre-qualify clients by simply
                   asking:
                 </h1>
-                <h1 className="pt-8 text-3xl font-bold drop-shadow-4">
+                <h1 className="pt-2 md:pt-8 text-xl md:text-3xl font-bold drop-shadow-4">
                   “Have you used RenoPilot to create a design for, or estimate
                   the cost of your project?”
                 </h1>
               </div>
             </div>
-            <div className="bg-transparent flex h-96 w-[80%] mt-20 justify-between">
+            <div className="flex h-96 min-w-[80%] mt-20 flex-wrap justify-between">
               <Card1
                 heading="What sort of Provider are you?"
                 checklist={CheckList1}
@@ -124,7 +124,7 @@ const Background = () => {
                 checklist={Options1}
               />
             </div>
-            <div className="bg-transparent flex h-96 w-[200rem] mt-20 justify-center">
+            <div className="bg-transparent flex h-96 w-[200rem] mt-20 flex-wrap justify-center">
               <Card2
                 heading="Already a Provider and want to make changes?"
                 checklist={Options1}
