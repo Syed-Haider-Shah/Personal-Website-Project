@@ -7,11 +7,13 @@ import Card2 from "./SmlComponents/Card2";
 const Background = () => {
   const [scrollY, setScrollY] = useState(0);
   const [scrolled, setScrolled] = useState(false);
+  const [scrolled2, setScrolled2] = useState(false);
 
   useEffect(() => {
     const handleScroll1 = () => {
       const scrollTop = window.scrollY;
       const scrollBreakpoint = 100;
+      const scrollBreakpoint2 = 500;
       /*
         scrollTop is how far down from the top the screen has scrolled.
         Alter scrollBreakpoint to adjust how far down the screen you want the event to trigger.
@@ -20,6 +22,11 @@ const Background = () => {
         setScrolled(true);
       } else {
         setScrolled(false);
+      }
+      if (scrollTop > scrollBreakpoint2) {
+        setScrolled2(true);
+      } else {
+        setScrolled2(false);
       }
     };
     window.addEventListener("scroll", handleScroll1);
@@ -110,15 +117,21 @@ const Background = () => {
                 </h1>
               </div>
             </div>
-            <div className="flex h-96 min-w-[80%] mt-20 flex-wrap justify-between">
+            <div
+              className={`${
+                scrolled2 ? "h-48 md:h-96" : "h-0"
+              }  gap-8 overflow-hidden w-[80%] mt-20 rounded-3xl flex justify-center transition-all duration-700`}
+            >
               <Card1
                 heading="What sort of Provider are you?"
                 checklist={CheckList1}
               />
+
               <Card1
                 heading="Which Service do you wish to use?"
                 checklist={CheckList2}
               />
+
               <Card2
                 heading="To become a Provider you must"
                 checklist={Options1}
