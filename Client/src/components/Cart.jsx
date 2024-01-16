@@ -3,16 +3,20 @@ import { useContext } from "react";
 import { ShopContext } from "./SmlComponents/ShopContext";
 import CartItemComp from "./SmlComponents/CartItemComp";
 import { Link } from "react-router-dom";
+import EmptyCartCard from "./SmlComponents/EmptyCartCard";
 
 const Cart = () => {
-  const { cartItems, getTotalCartAmount } = useContext(ShopContext);
+  const { cartItems, getTotalCartAmount, getSingleTotalCartAmount } =
+    useContext(ShopContext);
   const totalAmount = getTotalCartAmount();
+  const totalSingle = getSingleTotalCartAmount();
+  console.log(totalSingle);
   return (
-    <>
+    <div className="overflow-hidden">
       {totalAmount > 0 ? (
         <div className="flex w-full bg-white h-full">
-          <div className="w-[60%] flex flex-col gap-10 m-40 place-items-center justify-center">
-            <div className=" font-bold text-gray-400 justify-center flex gap-56">
+          <div className="w-[60%] flex flex-col m-40 place-items-center justify-center">
+            <div className=" font-bold mb-10 text-gray-400 justify-center flex gap-56">
               <div className="translate-x-10">PRODUCT</div>
               <div className="translate-x-[4.2rem]">PRICE</div>
               <div className="translate-x-10">QTY</div>
@@ -30,6 +34,7 @@ const Cart = () => {
                     alt={product.alt}
                     itemNumber={product.itemNumber}
                     description={product.description}
+                    total={totalSingle[product.id]}
                   />
                 );
               }
@@ -37,7 +42,7 @@ const Cart = () => {
           </div>
           <div className="w-[40%] bg-cartColor flex flex-col gap-24 items-center py-40">
             <div className="bg-slate-700 w-[70%] h-2 shadow-md"></div>
-            <div className="flex items-start flex-col gap-2  w-[60%]">
+            <div className="flex items-start flex-col gap-2 w-[60%]">
               <div className=" flex items-center gap-5">
                 <div className="text-sm">CART TOTAL :</div>
                 <div className="font-medium text-lg">
@@ -60,7 +65,7 @@ const Cart = () => {
                 </div>
               </div>
             </div>
-            <div className=" w-[60%]">
+            <div className="pb-20 w-[60%]">
               <div className="flex flex-col gap-5">
                 <Link
                   className="shadow-md bg-slate-800 font-medium flex gap-2 text-white items-center rounded-full p-2 px-4 w-52"
@@ -82,9 +87,15 @@ const Cart = () => {
           </div>
         </div>
       ) : (
-        <h1> Your Cart is Empty</h1>
+        <div className=" h-screen flex flex-col items-center justify-center">
+          <div className="bg-cartColor h-[50%] w-screen"></div>
+          <div className="bg-white h-[50%] w-screen"></div>
+          <div className="absolute h-[65%] w-96 shadow-2xl drop-shadow-2">
+            <EmptyCartCard />
+          </div>
+        </div>
       )}
-    </>
+    </div>
   );
 };
 export default Cart;

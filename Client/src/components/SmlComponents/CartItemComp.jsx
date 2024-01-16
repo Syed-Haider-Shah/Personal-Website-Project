@@ -9,6 +9,7 @@ const CartItemComp = ({
   alt,
   itemNumber,
   description,
+  total,
 }) => {
   const { cartItems, addToCart, removeFromCart, updateCartItemCount } =
     useContext(ShopContext);
@@ -52,7 +53,7 @@ const CartItemComp = ({
                 <i className="fa-regular fa-square-plus transition-all hover:text-2xl"></i>
               </button>
             </div>
-            <p className="text-md font-bold ">${price}</p>
+            <p className="text-md font-bold ">${total}</p>
           </div>
           <div className=" h-[40%]">
             <div className="flex justify-center  mt-5 gap-0 flex-col items-start pl-4">
