@@ -3,7 +3,7 @@ import ProfileCard from "./SmlComponents/ProfileCard";
 const ProfileKeys = () => {
   return (
     <>
-      <div className="h-screen bg-gray-100 flex items-center justify-center">
+      <div className="h-screen flex items-center justify-center">
         <div className="-translate-y-10 flex gap-10">
           <ProfileCard
             color="bg-green-700"

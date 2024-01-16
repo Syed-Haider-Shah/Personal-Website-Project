@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { ShopContext } from "./ShopContext";
+
 const Product = ({ id, productName, price, productImage }) => {
   const { addToCart, cartItems } = useContext(ShopContext);
   const cartItemAmount = cartItems[id];
