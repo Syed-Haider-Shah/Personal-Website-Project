@@ -15,12 +15,12 @@ export default function UserBtn({ button, route }) {
     <div className="">
       <div
         onClick={() => showDropdown((val) => !val)}
-        className="flex items-center w-96"
+        className="flex items-center w-full"
       >
         <NavBtn button={button} />
       </div>
       <div
-        className={` mt-2 absolute bg-white w-[7rem] flex-col shadow-lg rounded-lg ${
+        className={` mt-2 absolute bg-white flex-col shadow-lg rounded-lg ${
           dropdown ? "block" : "hidden"
         }`}
       >

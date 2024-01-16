@@ -58,7 +58,7 @@ const Background = () => {
           <div
             className={`absolute top-[22%] left-[52%] transform -translate-x-[55%] bg-transparent text-center z-10`}
           >
-            <h1 className="text-5xl font-bold text-white">
+            <h1 className="text-5xl font-bold text-white drop-shadow-2">
               Provider&apos;s Portal
             </h1>
           </div>
@@ -95,16 +95,16 @@ const Background = () => {
             <div
               className={`${
                 scrolled
-                  ? "bg-white shadow-lg text-primary"
+                  ? "bg-primary shadow-lg text-white"
                   : "bg-transparent text-transparent"
-              } pt-3 h-80 w-[80%] mt-[6rem] rounded flex justify-center transition duration-300`}
+              } pt-3 h-80 w-[80%] mt-[6rem] rounded-3xl flex justify-center transition duration-300`}
             >
               <div className="mt-16 bg-transparent text-center ">
-                <h1 className="p-2 text-4xl font-bold ">
+                <h1 className="p-2 text-4xl font-bold drop-shadow-4">
                   Our goal is for Contractors to pre-qualify clients by simply
                   asking:
                 </h1>
-                <h1 className="pt-8 text-3xl font-bold ">
+                <h1 className="pt-8 text-3xl font-bold drop-shadow-4">
                   “Have you used RenoPilot to create a design for, or estimate
                   the cost of your project?”
                 </h1>
