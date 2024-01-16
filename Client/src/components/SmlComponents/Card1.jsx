@@ -1,7 +1,7 @@
 import Checkbox from "./Checkbox";
 export default function Card1({ heading, checklist }) {
   return (
-    <div className=" w-[30%] h-[90%] shadow-lg rounded bg-white pt-5">
+    <div className=" drop-shadow-4 w-[30%] h-[90%] shadow-lg rounded bg-white pt-5">
       <h1 className="  drop-shadow-4 m-2 mt-5 text-xl font-bold text-primary bg-red- text-center">
         {heading}
       </h1>

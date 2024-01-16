@@ -112,7 +112,7 @@ const Background = () => {
                 scrolled
                   ? "bg-gradient-to-tl from-primary to-primary2 shadow-lg text-white"
                   : "bg-transparent text-transparent"
-              }  pt-3 h-48 md:h-80 w-[80%] overflow-hidden mt-[6rem] rounded-3xl flex justify-center transition duration-300`}
+              } drop-shadow-2 pt-3 h-48 md:h-80 w-[80%] overflow-hidden mt-[6rem] rounded-3xl flex justify-center transition duration-300`}
             >
               <div className="m-2 md:mt-16 bg-transparent text-center ">
                 <h1 className=" p-2 text-2xl md:text-4xl font-bold drop-shadow-4">
