@@ -15,6 +15,7 @@ export default function UserBtn({ button, route }) {
     <div className="">
       <div
         onClick={() => showDropdown((val) => !val)}
+        onBlur={() => showDropdown((val) => !val)}
         className="flex items-center w-full"
       >
         <NavBtn button={button} />

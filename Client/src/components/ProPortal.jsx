@@ -66,18 +66,18 @@ const Background = () => {
           className="absolute inset-0 "
         >
           <img
-            src="/art11.jpg"
+            src="/art5.jpg"
             alt="Background"
             className="w-full h-[90%] object-cover"
           />
           <div
-            className={`absolute top-[41%] md:top-[22%] left-[52%] transform -translate-x-[55%] bg-transparent text-center z-10`}
+            className={`absolute top-[40%] md:top-[22%] left-[50%] md:left-[49%] transform -translate-x-[55%] bg-transparent text-center z-10`}
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-white drop-shadow-2">
+            <h1 className="text-4xl md:text-5xl font-bold text-white drop-shadow-3">
               Provider&apos;s Portal
             </h1>
           </div>
-          <div className="hidden md:block absolute top-[32%] left-[40%] transform -translate-x-[25%] bg-red- w-[50rem] text-center z-10">
+          <div className="hidden md:block absolute top-[32%] left-[37%] transform -translate-x-[25%] w-[50rem] text-center z-10">
             {/* Title */}
             <SmlText
               text={`Our mission is to make Providers' lives a little easier by helping
@@ -98,7 +98,7 @@ const Background = () => {
       </section>
       <section className="bg-gray-100">
         <div
-          className="relative w-[96%] left-[2%] right-[2%] -mt-80 rounded-lg z-10 bg-gray-200"
+          className="relative w-[96%] left-[2%] right-[2%] -mt-80 rounded-lg z-10 bg-gray-200 overflow-hidden"
           style={{
             borderRadius: "irem",
             /* The box shadow profile is for shadow over the grey box ordered in Top - bottom (0, 0, 0) is the RGB*/
@@ -110,9 +110,9 @@ const Background = () => {
             <div
               className={`${
                 scrolled
-                  ? "bg-primary shadow-lg text-white"
+                  ? "bg-gradient-to-tl from-primary to-primary2 shadow-lg text-white"
                   : "bg-transparent text-transparent"
-              }  pt-3 h-48 md:h-80 w-[80%] mt-[6rem] rounded-3xl flex justify-center transition duration-300`}
+              }  pt-3 h-48 md:h-80 w-[80%] overflow-hidden mt-[6rem] rounded-3xl flex justify-center transition duration-300`}
             >
               <div className="m-2 md:mt-16 bg-transparent text-center ">
                 <h1 className=" p-2 text-2xl md:text-4xl font-bold drop-shadow-4">
@@ -125,11 +125,11 @@ const Background = () => {
                 </h1>
               </div>
             </div>
-            <div className="w-[100%] flex justify-center  items-center h-48 md:h-96">
+            <div className="w-[100%] flex justify-center items-center h-48 md:h-96">
               <div
                 className={`${
-                  scrolled2 ? "h-48 md:h-96" : "md:h-0"
-                }  gap-8 overflow-hidden w-[80%] mt-20 rounded-3xl flex justify-center transition-all duration-700`}
+                  scrolled2 ? "h-48 md:h-96" : "h-48 md:h-0"
+                } flex-wrap gap-8 overflow-hidden w-[80%] mt-20 rounded-3xl flex justify-center transition-all duration-700`}
               >
                 <Card1
                   heading="What sort of Provider are you?"
@@ -149,8 +149,10 @@ const Background = () => {
             </div>
             <div
               className={`${
-                scrolled3 ? "md:translate-x-0" : "md:-translate-x-[80rem]"
-              } transition-all duration-700 mx-2 bg-transparent flex h-96 w-[200rem] mt-20 flex-wrap justify-center`}
+                scrolled3
+                  ? "translate-x-0 md:translate-x-0"
+                  : "translate-x-0 md:-translate-x-[80rem]"
+              }  transition-all duration-700 mx-2 bg-transparent flex h-96 w-[200rem] mt-10 flex-wrap justify-center`}
             >
               <Card2
                 heading="Already a Provider and want to make changes?"
