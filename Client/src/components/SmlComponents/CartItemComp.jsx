@@ -17,7 +17,7 @@ const CartItemComp = ({
       <div className=" w-full h-80">
         <div className=" w-full h-full">
           <div className="h-[60%] flex justify-between items-center">
-            <div className="h-full w-[25%] flex items-center justify-center rounded-lg bg-cartColor">
+            <div className="shadow-md h-full w-[25%] flex items-center justify-center rounded-lg bg-cartColor">
               <img
                 className="drop-shadow-4 h-[80%]"
                 alt={alt}

@@ -7,8 +7,9 @@ export default {
         cardHeight: "10rem", // 160px
       },
       colors: {
-        primary: "#815487",
-        secondary: `#444444`,
+        primary: "#882565",
+        primary1: `#e16a96`,
+        primary2: `#e16a96`,
         cartColor: "#f7e8e5",
       },
     },
