@@ -11,6 +11,7 @@ export const PRODUCTS = [
     productImage: product1,
     description: "A black fence perfect for commercial buildings.",
     alt: "Black Noir Fence Image",
+    itemNumber: 53745231235,
   },
   {
     id: 2,
@@ -19,6 +20,7 @@ export const PRODUCTS = [
     productImage: product2,
     description: "The most elegant entry in our collection.",
     alt: "Cream Puff Fence Image",
+    itemNumber: 53425255264,
   },
   {
     id: 3,
@@ -27,6 +29,7 @@ export const PRODUCTS = [
     productImage: product3,
     description: "A Common choice for most Home Owners.",
     alt: "Off White Fence Image",
+    itemNumber: 53745616311,
   },
   {
     id: 4,
@@ -36,5 +39,6 @@ export const PRODUCTS = [
     description:
       "Made from the strongest material wood, virtually indestructable!",
     alt: "Wood Brown Fence Image",
+    itemNumber: 53742133454,
   },
 ];

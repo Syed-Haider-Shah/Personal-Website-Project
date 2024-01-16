@@ -9,6 +9,7 @@ export default {
       colors: {
         primary: "#815487",
         secondary: `#444444`,
+        cartColor: "#f7e8e5",
       },
     },
   },
