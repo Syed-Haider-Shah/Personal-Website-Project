@@ -8,16 +8,19 @@ const Background = () => {
   const [scrollY, setScrollY] = useState(0);
   const [scrolled, setScrolled] = useState(false);
   const [scrolled2, setScrolled2] = useState(false);
+  const [scrolled3, setScrolled3] = useState(false);
 
   useEffect(() => {
     const handleScroll1 = () => {
       const scrollTop = window.scrollY;
       const scrollBreakpoint = 100;
       const scrollBreakpoint2 = 500;
+      const scrollBreakpoint3 = 800;
       /*
         scrollTop is how far down from the top the screen has scrolled.
         Alter scrollBreakpoint to adjust how far down the screen you want the event to trigger.
       */
+      console.log(scrollTop);
       if (scrollTop > scrollBreakpoint) {
         setScrolled(true);
       } else {
@@ -27,6 +30,11 @@ const Background = () => {
         setScrolled2(true);
       } else {
         setScrolled2(false);
+      }
+      if (scrollTop > scrollBreakpoint3) {
+        setScrolled3(true);
+      } else {
+        setScrolled3(false);
       }
     };
     window.addEventListener("scroll", handleScroll1);
@@ -117,27 +125,33 @@ const Background = () => {
                 </h1>
               </div>
             </div>
+            <div className="w-[100%] flex justify-center  items-center h-48 md:h-96">
+              <div
+                className={`${
+                  scrolled2 ? "h-48 md:h-96" : "md:h-0"
+                }  gap-8 overflow-hidden w-[80%] mt-20 rounded-3xl flex justify-center transition-all duration-700`}
+              >
+                <Card1
+                  heading="What sort of Provider are you?"
+                  checklist={CheckList1}
+                />
+
+                <Card1
+                  heading="Which Service do you wish to use?"
+                  checklist={CheckList2}
+                />
+
+                <Card2
+                  heading="To become a Provider you must"
+                  checklist={Options1}
+                />
+              </div>
+            </div>
             <div
               className={`${
-                scrolled2 ? "h-48 md:h-96" : "h-0"
-              }  gap-8 overflow-hidden w-[80%] mt-20 rounded-3xl flex justify-center transition-all duration-700`}
+                scrolled3 ? "md:translate-x-0" : "md:-translate-x-[80rem]"
+              } transition-all duration-700 mx-2 bg-transparent flex h-96 w-[200rem] mt-20 flex-wrap justify-center`}
             >
-              <Card1
-                heading="What sort of Provider are you?"
-                checklist={CheckList1}
-              />
-
-              <Card1
-                heading="Which Service do you wish to use?"
-                checklist={CheckList2}
-              />
-
-              <Card2
-                heading="To become a Provider you must"
-                checklist={Options1}
-              />
-            </div>
-            <div className="bg-transparent flex h-96 w-[200rem] mt-20 flex-wrap justify-center">
               <Card2
                 heading="Already a Provider and want to make changes?"
                 checklist={Options1}
