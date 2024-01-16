@@ -1,9 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Cookies from "js-cookie";
-import axios from "axios";
-import { useEffect, useState } from "react";
 
 import Home from "./components/Home";
 import Navbar from "./components/NavbarLog";
@@ -21,32 +18,42 @@ import ProPortal from "./components/ProPortal";
 import ConPortal from "./components/ConPortal";
 import ProviderPage from "./components/ProviderPage";
 import ImageSlider from "./components/ImageSlider";
+import ItemDisplay from "./components/ItemDisplay";
+import Cart from "./components/Cart";
+import ProfileKeys from "./components/ProfileKeys";
+import { ShopContextProvider } from "./components/SmlComponents/ShopContext";
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="App">
-        <ToastContainer />
-        <Navbar />
+    <ShopContextProvider>
+      <BrowserRouter>
+        <div className="bg-gray-100">
+          <ToastContainer />
+          <Navbar />
 
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/proportal" element={<ProPortal />} />
-          <Route path="/contributor" element={<ConPortal />} />
-          <Route path="/homeowner" element={<Hello />} />
-          <Route path="/signup" element={<Selector />} />
-          <Route path="/signupho" element={<SignupHO />} />
-          <Route path="/signupcon" element={<SignupCon />} />
-          <Route path="/signuppro" element={<SignupPro />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/forget" element={<Forget />} />
-          <Route path="/slider" element={<ImageSlider />} />
-          <Route path="/providerpage" element={<ProviderPage />} />
-        </Routes>
-        <Footer />
-      </div>
-    </BrowserRouter>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/proportal" element={<ProPortal />} />
+            <Route path="/contributor" element={<ConPortal />} />
+            <Route path="/homeowner" element={<Hello />} />
+            <Route path="/signup" element={<Selector />} />
+            <Route path="/signupho" element={<SignupHO />} />
+            <Route path="/signupcon" element={<SignupCon />} />
+            <Route path="/signuppro" element={<SignupPro />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/forget" element={<Forget />} />
+            <Route path="/slider" element={<ImageSlider />} />
+            <Route path="/providerpage" element={<ProviderPage />} />
+            <Route path="/itemdisplay" element={<ItemDisplay />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/profilekeys" element={<ProfileKeys />} />
+            <Route path="/profile" element={<Profile />} />
+          </Routes>
+          <Footer />
+        </div>
+      </BrowserRouter>
+    </ShopContextProvider>
   );
 }
 

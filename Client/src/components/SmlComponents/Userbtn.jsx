@@ -15,19 +15,26 @@ export default function UserBtn({ button, route }) {
     <div className="">
       <div
         onClick={() => showDropdown((val) => !val)}
-        className="flex items-center w-96"
+        onBlur={() => showDropdown((val) => !val)}
+        className="flex items-center w-full"
       >
         <NavBtn button={button} />
       </div>
       <div
-        className={` mt-2 absolute bg-white w-[7rem] flex-col shadow-lg rounded-lg ${
+        className={` mt-2 absolute bg-white flex-col shadow-lg rounded-lg ${
           dropdown ? "block" : "hidden"
         }`}
       >
-        <Link className="transition-all block px-2 py-1 text-gray-700 hover:text-white font-semibold rounded hover:bg-indigo-500 md:py-4 md:px-4">
+        <Link
+          to="profile"
+          className="transition-all block px-2 py-1 text-gray-700 hover:text-white font-semibold rounded hover:bg-indigo-500 md:py-4 md:px-4"
+        >
           Profile
         </Link>
-        <Link className="transition-all block px-2 py-1 text-gray-700 hover:text-white font-semibold rounded hover:bg-indigo-500 md:py-4 md:px-4">
+        <Link
+          to="cart"
+          className="transition-all block px-2 py-1 text-gray-700 hover:text-white font-semibold rounded hover:bg-indigo-500 md:py-4 md:px-4"
+        >
           Orders
         </Link>
         <div

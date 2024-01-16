@@ -19,11 +19,11 @@ const ImageSliderComp = ({ images }) => {
   return (
     <>
       <div
-        className="rounded-xl overflow-hidden"
+        className="rounded-[2rem] overflow-hidden"
         style={{ height: "100%", width: "100%", position: "relative" }}
       >
         <div
-          className=" flex overflow-hidden rounded-xl shadow-xl"
+          className=" flex overflow-hidden rounded-[2rem] shadow-xl"
           style={{
             width: "100%",
             height: "100%",

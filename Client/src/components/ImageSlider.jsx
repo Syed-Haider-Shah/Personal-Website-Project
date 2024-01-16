@@ -15,7 +15,7 @@ const ImageSlider = () => {
   return (
     <>
       <div
-        className="object-cover w-[100%] h-[100%] block pb-10"
+        className="border-[16px] object-cover w-[100%] h-[100%] block rounded-[2rem] shadow-xl border-white justify-center items-center bg-white"
         style={{
           maxWidth: "1600px",
           width: "100%",

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const Background = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -35,13 +35,13 @@ const Background = () => {
           <div
             className={`absolute top-[35%] left-[52%] transform -translate-x-[55%] bg-transparent text-center z-10`}
           >
-            <h1 className="text-5xl font-bold text-white font-outline-">
+            <h1 className="drop-shadow-2 text-2xl md:text-5xl font-bold text-white font-outline-">
               ONE-STOP-SHOP FOR HOMEOWNERS, PROVIDERS & DIY-ERs
             </h1>
           </div>
-          <div className="absolute top-[50%] left-[32%] transform -translate-x-[25%] bg-transparent text-center z-10">
+          <div className="drop-shadow-2 absolute top-[50%] left-[32%] transform -translate-x-[25%] bg-transparent text-center z-10">
             {/* Title */}
-            <p className=" text-2xl text-white">
+            <p className=" md:block hidden text-2xl text-white">
               RenoPilot offers a suite of products for Homeowners undertaking
               property improvement or home renovation projects and for companies
               and individuals who provide the goods and services those projects
@@ -50,7 +50,7 @@ const Background = () => {
           </div>
         </div>
       </section>
-      <section className="bg-grey-500">
+      <section className=" md:translate-y-0 -translate-y-96 bg-grey-500">
         <div
           className="relative w-[96%] left-[2%] right-[2%] -mt-80 h-screen rounded-lg z-10 mb-11 bg-slate-600"
           style={{

@@ -97,12 +97,12 @@ export default function Navbar() {
   };
 
   return (
-    <div className="sticky top-0 z-50 ">
+    <div className="sticky top-0 z-50">
       {/*used md: for minimum width for phone*/}
       {/*header controls entire the nav*/}
       <header
         className={classnames(
-          "md:flex md:justify-between md:items-center md:pl-52 md:pr-52 md:px-4 md:py-2 text-white transition-all duration-300 overflow-hidden",
+          "p-4 flex flex-col md:flex-row gap-6 md:gap-0 md:flex  md:justify-between md:items-center md:pl-52 md:pr-52 md:px-4 md:py-2 text-white transition-all duration-300 overflow-hidden",
           {
             [`py-6 shadow-lg ${pageOption.color}`]: scrolled,
             [pageOption.initialColor]: !scrolled,
@@ -118,7 +118,7 @@ export default function Navbar() {
                 src="/logo.svg"
                 alt="Logo"
                 aria-label="Website Logo"
-                className=" w-full cursor-pointer md:mt-1 md:mb-1"
+                className=" w-full cursor-pointer md:mt-1 md:mb-1 drop-shadow-2"
               />
             </Link>
           </div>
@@ -132,7 +132,7 @@ export default function Navbar() {
         {/* nav bar children design, it form which is search bar and the search button and 3 other buttons*/}
         {/*nav tag controls the position of text on the right side in nav*/}
         <nav
-          className={`  px-20 pt-1 pb-1 md:flex  ${
+          className={` flex-wrap gap-2 md:gap-0 flex-col pt-1 pb-1 flex md:flex md:flex-row  ${
             showMenu ? "block" : "hidden"
           }`}
         >
@@ -160,11 +160,14 @@ export default function Navbar() {
 
           {/* buttons on right*/}
           <NavBtn button="Image Slider" route="/slider" />
-          <NavBtn button="Profile Keys" />
-          <NavBtn button="Items Display" />
+          <NavBtn button="Profile Keys" route="/profilekeys" />
+          <NavBtn button="Items Display" route="/itemdisplay" />
           <NavBtn button="About Us" route="aboutus" />
           {navOptions}
-          <Link className="cursor-pointer block px-2 py-1 text-white font-semibold rounded hover:bg-indigo-600  md:ml-4">
+          <Link
+            to="/cart"
+            className=" drop-shadow-2 cursor-pointer block px-2 py-1 text-white font-semibold rounded hover:bg-indigo-600  md:ml-4"
+          >
             <i className="fa-solid fa-cart-shopping "></i>
           </Link>
           {cookieValue == undefined && (
