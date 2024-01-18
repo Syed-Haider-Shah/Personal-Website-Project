@@ -26,7 +26,7 @@ const Product = ({
 
           <button
             onClick={() => addToCart(id)}
-            className="font-bold hover:text-slate-700 text-sm hover:bg-white border-2 border-slate-700 bg-slate-700 text-white p-1 px-3 transition-all shadow-lg rounded-full"
+            className="font-bold hover:text-slate text-sm hover:bg-white border-2 border-slate bg-slate text-white p-1 px-3 transition-all shadow-lg rounded-full"
           >
             Add to Cart {cartItemAmount > 0 && <>({cartItemAmount})</>}
           </button>
