@@ -10,7 +10,6 @@ const Cart = () => {
     useContext(ShopContext);
   const totalAmount = getTotalCartAmount();
   const totalSingle = getSingleTotalCartAmount();
-  console.log(totalSingle);
   return (
     <div className="overflow-hidden">
       {totalAmount > 0 ? (
