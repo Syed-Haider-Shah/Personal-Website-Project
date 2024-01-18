@@ -7,7 +7,7 @@ import UserBtn from "./SmlComponents/Userbtn";
 import classnames from "classnames";
 
 const PageColors = [
-  { link: "/", color: "bg-slate-700", initialColor: "bg-transparent" },
+  { link: "/", color: "bg-homeColor", initialColor: "bg-transparent" },
   { link: "/proportal", color: "bg-primary", initialColor: "bg-transparent" },
 ];
 
@@ -20,8 +20,8 @@ export default function Navbar() {
   const { pathname } = useLocation();
   const pageOption = PageColors.find((val) => val.link === pathname) || {
     link: "",
-    color: "bg-slate-700",
-    initialColor: "bg-slate-700",
+    color: "bg-homeColor",
+    initialColor: "bg-homeColor",
   };
 
   useEffect(() => {
@@ -145,15 +145,15 @@ export default function Navbar() {
                   placeholder="Search"
                   id="footer-field"
                   name="footer-field"
-                  className="h-8 w-full bg-gray-100  rounded border border-gray-300 focus:ring-2  focus:ring-indigo-200 focus:border-indigo-500 text-base outline-none text-gray-700 py-0 pl-2 leading-8 transition-colors duration-400 ease-in-out"
+                  className="h-8 w-full drop-shadow-3 bg-gray-100  rounded border border-gray-300 focus:ring-2  focus:ring-white focus:border-lightSlate text-base outline-none text-gray-700 py-0 pl-2 leading-8 transition-colors duration-400 ease-in-out"
                 />
               </div>
 
               <button
                 type="submit"
-                className=" text-white bg-indigo-500  px-4 focus:outline-none hover:bg-indigo-600  cursor-pointer  border-gray-200  border-solid rounded-lg mr-2"
+                className=" text-slate text-sm hover:text-white bg-white shadow-md  focus:outline-none hover:bg-slate  cursor-pointer  border-gray-200  border-solid rounded-lg mr-2"
               >
-                <i className="fa-solid fa-magnifying-glass w-[20px]"></i>
+                <i className="fa-solid fa-magnifying-glass  w-[40px]"></i>
               </button>
             </div>
           </form>
@@ -166,7 +166,7 @@ export default function Navbar() {
           {navOptions}
           <Link
             to="/cart"
-            className=" drop-shadow-2 cursor-pointer block px-2 py-1 text-white font-semibold rounded hover:bg-indigo-600  md:ml-4"
+            className=" drop-shadow-2 cursor-pointer block px-2 py-1 text-white font-semibold rounded hover:bg-slate  md:ml-4"
           >
             <i className="fa-solid fa-cart-shopping "></i>
           </Link>

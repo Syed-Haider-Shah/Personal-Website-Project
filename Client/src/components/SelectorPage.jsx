@@ -13,7 +13,7 @@ export default function Selector() {
         <div className="p-4 w-full flex flex-wrap justify-center">
           <Link
             to="/signupho"
-            className=" transition-all duration-500 hover:bg-indigo-500 hover:text-white cursor-pointer text-slate-600 hover:m-0 w-fit m-4 hover:shadow-lg border-2 text-center  border-gray-200 px-4 py-2 lg:py-6 lg:px-10 rounded-lg"
+            className=" shadow-lg transition-all duration-500 hover:bg-homeColor hover:text-white cursor-pointer text-slate-600 hover:m-0 w-fit m-4 hover:shadow-lg border-2 text-center  border-gray-200 px-4 py-2 lg:py-6 lg:px-10 rounded-lg"
           >
             <i className="fa-solid fa-house-user text-3xl lg:text-5xl"></i>
             <h2 className=" title-font font-medium text-lg lg:text-2xl mt-4 ">
@@ -23,7 +23,7 @@ export default function Selector() {
           </Link>
           <Link
             to="/signuppro"
-            className=" transition-all duration-500 hover:bg-indigo-500 hover:text-white cursor-pointer text-slate-600 m-4 hover:m-0 hover:shadow-lg border-2 text-center  border-gray-200 px-4 py-2 lg:py-6 lg:px-10 rounded-lg"
+            className="shadow-lg transition-all duration-500 hover:bg-homeColor hover:text-white cursor-pointer text-slate-600 m-4 hover:m-0 hover:shadow-lg border-2 text-center  border-gray-200 px-4 py-2 lg:py-6 lg:px-10 rounded-lg"
           >
             <i className="fa-solid fa-hammer text-3xl lg:text-5xl"></i>
             <h2 className=" title-font font-medium text-lg lg:text-2xl mt-4 ">
@@ -33,7 +33,7 @@ export default function Selector() {
           </Link>
           <Link
             to="/signupcon"
-            className=" transition-all duration-500 hover:bg-indigo-500 hover:text-white cursor-pointer text-slate-600 w-fit m-4 hover:m-0 hover:shadow-lg border-2 text-center  border-gray-200 px-4 py-2 lg:py-6 lg:px-10 rounded-lg"
+            className="shadow-lg transition-all duration-500 hover:bg-homeColor hover:text-white cursor-pointer text-slate-600 w-fit m-4 hover:m-0 hover:shadow-lg border-2 text-center  border-gray-200 px-4 py-2 lg:py-6 lg:px-10 rounded-lg"
           >
             <i className="fa-solid fa-file text-3xl lg:text-5xl"></i>
             <h2 className=" title-font font-medium text-lg lg:text-2xl mt-4 ">

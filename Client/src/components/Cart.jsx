@@ -10,7 +10,6 @@ const Cart = () => {
     useContext(ShopContext);
   const totalAmount = getTotalCartAmount();
   const totalSingle = getSingleTotalCartAmount();
-  console.log(totalSingle);
   return (
     <div className="overflow-hidden">
       {totalAmount > 0 ? (
@@ -41,7 +40,7 @@ const Cart = () => {
             })}
           </div>
           <div className="w-[40%] bg-cartColor flex flex-col gap-24 items-center py-40">
-            <div className="bg-slate-700 w-[70%] h-2 shadow-md"></div>
+            <div className="bg-slate w-[70%] h-2 shadow-md"></div>
             <div className="flex items-start flex-col gap-2 w-[60%]">
               <div className=" flex items-center gap-5">
                 <div className="text-sm">CART TOTAL :</div>
@@ -68,7 +67,7 @@ const Cart = () => {
             <div className="pb-20 w-[60%]">
               <div className="flex flex-col gap-5">
                 <Link
-                  className="shadow-md bg-slate-800 font-medium flex gap-2 text-white items-center rounded-full p-2 px-4 w-52"
+                  className="shadow-md bg-slate font-medium flex gap-2 text-white items-center rounded-full p-2 px-4 w-52"
                   to="/itemdisplay"
                 >
                   <div className="text-sm ">CONTINUE SHOPPING</div>
@@ -76,7 +75,7 @@ const Cart = () => {
                     <i className=" p-1 fa-solid fa-bag-shopping"></i>
                   </div>
                 </Link>
-                <button className="shadow-md bg-white font-medium flex gap-2 text-slate-800 items-center rounded-full p-2 px-4 w-52">
+                <button className="shadow-md bg-white font-medium flex gap-2 text-slate items-center rounded-full p-2 px-4 w-52">
                   <div className="text-sm ">CHECKOUT</div>
                   <div>
                     <i className="fa-solid fa-right-from-bracket p-1"></i>

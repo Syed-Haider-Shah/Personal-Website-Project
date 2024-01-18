@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from "react";
+import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import axios from "axios";
-import Cookies from "js-cookie";
+import { ShopContext } from "./SmlComponents/ShopContext";
 
 export default function SignupHO() {
   const [captchaValue, setCaptchaValue] = useState(null);
-  const [cookieValue, setCookieValue] = useState("");
-
+  const { Cookies } = useContext(ShopContext);
   const nav = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -19,7 +18,7 @@ export default function SignupHO() {
     cpassword: "",
   });
   const [postcode, setPost] = useState("");
-  const [choice2, setType] = useState("");
+
   const choice = "homeowner";
 
   //this is also where we check the acceptable values for form, ie password and cpassword match etc
@@ -46,7 +45,7 @@ export default function SignupHO() {
               toast.error("Email is already registered");
             } else if (res.data == "notexist") {
               Cookies.set("email", formData.email, { expires: 7 }); //generate cookie
-              setCookieValue(Cookies.get("email"));
+              nav("/homeowner");
               toast.success("Successfully Registered");
             }
           });
@@ -55,32 +54,6 @@ export default function SignupHO() {
       console.log(error);
     }
   };
-  useEffect(() => {
-    console.log("finalnav");
-    console.log("choice2 :", choice2);
-    if (choice2 === "homeowner") {
-      nav("/homeowner");
-    }
-  }, [choice2]);
-
-  const choiceAssigner = async () => {
-    try {
-      await axios
-        .post("http://127.0.0.1:8000/account", {
-          cookieValue,
-        })
-        .then((res) => {
-          setType(res.data.choice);
-        })
-        .catch(() => {});
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  useEffect(() => {
-    choiceAssigner();
-  }, [cookieValue]);
 
   return (
     <div className="">
@@ -109,7 +82,7 @@ export default function SignupHO() {
                 type="name"
                 id="name"
                 name="name"
-                className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                className="w-full bg-white rounded border border-gray-300 focus:border-homeColor focus:ring-2 focus:ring-homeColor text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
             </div>
             <div className="relative mb-4">
@@ -131,7 +104,7 @@ export default function SignupHO() {
                 type="email"
                 id="email"
                 name="email"
-                className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                className="w-full bg-white rounded border border-gray-300 focus:border-homeColor focus:ring-2 focus:ring-homeColor text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
             </div>
             <div className="relative mb-4">
@@ -148,7 +121,7 @@ export default function SignupHO() {
                 type="number"
                 id="pcode"
                 name="pcode"
-                className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                className="w-full bg-white rounded border border-gray-300 focus:border-homeColor focus:ring-2 focus:ring-homeColor text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
             </div>
             <div className="relative mb-4">
@@ -170,7 +143,7 @@ export default function SignupHO() {
                 type="password"
                 id="password"
                 name="password"
-                className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                className="w-full bg-white rounded border border-gray-300 focus:border-homeColor focus:ring-2 focus:ring-homeColor text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
             </div>
             <div className="relative mb-4">
@@ -192,7 +165,7 @@ export default function SignupHO() {
                 type="password"
                 id="cpassword"
                 name="cpassword"
-                className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                className="w-full bg-white rounded border border-gray-300 focus:border-homeColor focus:ring-2 focus:ring-homeColor text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
             </div>
 
@@ -202,7 +175,7 @@ export default function SignupHO() {
               onChange={(value) => setCaptchaValue(value)}
             />
             <input
-              className="text-white cursor-pointer bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+              className="text-white cursor-pointer bg-homeColor border-0 py-2 px-6 focus:outline-none hover:bg-homeColor rounded text-lg"
               type="submit"
               value="Sign me up !"
             />

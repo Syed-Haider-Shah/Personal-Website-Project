@@ -12,10 +12,8 @@ app.get("/", cors(), (req, res) => {});
 
 app.post("/account", async (req, res) => {
   try {
-    console.log("cookie: ", req.body.cookieValue);
     const email = req.body.cookieValue;
     const check = await userCollection.findOne({ email: email });
-    console.log("check: ", req.body.cookieValue);
     res.json(check);
   } catch (e) {}
 });
@@ -49,7 +47,6 @@ app.post("/signupho", async (req, res) => {
   const formData = req.body.formData;
   const post = req.body.postcode;
   const choice = req.body.choice;
-  console.log(choice);
   const data = {
     name: formData.name,
     email: formData.email,
@@ -77,7 +74,6 @@ app.post("/signuppro", async (req, res) => {
   const formData = req.body.formData;
   const post = req.body.postcode;
   const choice = req.body.choice;
-  console.log(choice);
   const data = {
     name: formData.name,
     email: formData.email,
@@ -106,9 +102,6 @@ app.post("/signupcon", async (req, res) => {
   const state = req.body.state;
   const country = req.body.country;
   const choice = req.body.choice;
-  console.log(choice);
-  console.log(state);
-  console.log(country);
   const data = {
     name: formData.name,
     email: formData.email,
@@ -137,7 +130,6 @@ app.post("/hello", async (req, res) => {
   try {
     const email = req.body.cookieValue;
     const check = await userCollection.findOne({ email: email });
-    console.log(check.name);
     res.json(check.name);
   } catch (e) {
     console.log(e);

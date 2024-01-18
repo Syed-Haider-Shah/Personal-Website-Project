@@ -31,7 +31,7 @@ const ProfileCard = ({
           <img src={photo} aria-details="no icon" />
         </div>
         <div className="bg-white h-[70%] flex flex-col items-center pt-12">
-          <h className="text-lg font-bold">{title}</h>
+          <h1 className="text-lg font-bold">{title}</h1>
           <p className="text-sm text-gray-600 text-center m-6 mt-4 mb-4">
             {text1}
             <span className="font-bold px-1">{type}</span>

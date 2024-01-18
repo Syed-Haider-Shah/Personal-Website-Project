@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 import { PRODUCTS } from "../../constants/products";
-
+import Cookies from "js-cookie";
 export const ShopContext = createContext(null);
 
 const getDefaultCart = () => {
@@ -17,7 +17,6 @@ const getTotalCart = () => {
   }
   return cart;
 };
-
 export const ShopContextProvider = (props) => {
   const [cartItems, setCartItems] = useState(getDefaultCart());
   const [totalCart, settotalCart] = useState(getTotalCart());
@@ -33,6 +32,7 @@ export const ShopContextProvider = (props) => {
   const updateCartItemCount = (newAmount, itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: newAmount }));
   };
+
   const getTotalCartAmount = () => {
     let totalAmount = 0;
     for (const item in cartItems) {
@@ -58,6 +58,7 @@ export const ShopContextProvider = (props) => {
     updateCartItemCount,
     getTotalCartAmount,
     getSingleTotalCartAmount,
+    Cookies,
   };
 
   return (

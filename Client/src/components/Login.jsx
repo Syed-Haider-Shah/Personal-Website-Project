@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import axios from "axios";
-import Cookies from "js-cookie";
+import { ShopContext } from "./SmlComponents/ShopContext";
 
 export default function Login() {
   const [captchaValue, setCaptchaValue] = useState(null);
   const [cookieValue, setCookieValue] = useState("");
   const [choice, setType] = useState("");
+  const { Cookies } = useContext(ShopContext);
   const nav = useNavigate();
 
   //this is only a temporary storage so it can be trasported to server
@@ -17,7 +18,6 @@ export default function Login() {
     email: "",
     password: "",
   });
-
   //submit sends formData to backend for verification
   const submit = async (e) => {
     e.preventDefault();
@@ -58,6 +58,7 @@ export default function Login() {
           cookieValue,
         })
         .then((res) => {
+          console.log("step1 is reached");
           setType(res.data.choice);
         })
         .catch(() => {});
@@ -111,7 +112,7 @@ export default function Login() {
                 type="email"
                 id="email"
                 name="email"
-                className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                className="w-full bg-white rounded border border-gray-300 focus:border-homeColor focus:ring-2 focus:ring-homeColor text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
             </div>
             <div className="relative mb-4">
@@ -133,7 +134,7 @@ export default function Login() {
                 type="password"
                 id="password"
                 name="password"
-                className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                className="w-full bg-white rounded border border-gray-300 focus:border-homeColor focus:ring-2 focus:ring-homeColor text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
             </div>
             <ReCAPTCHA
@@ -142,7 +143,7 @@ export default function Login() {
               onChange={(value) => setCaptchaValue(value)}
             />
             <input
-              className="text-white cursor-pointer bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+              className="text-white cursor-pointer bg-homeColor border-0 py-2 px-6 focus:outline-none hover:bg-homeColor rounded text-lg"
               type="submit"
               value="Log In"
             />

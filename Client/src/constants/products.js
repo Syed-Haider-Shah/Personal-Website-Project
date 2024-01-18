@@ -36,8 +36,7 @@ export const PRODUCTS = [
     productName: "Wood Brown",
     price: 99.99,
     productImage: product4,
-    description:
-      "Made from the strongest material wood, virtually indestructable!",
+    description: "Made from indestructable Material.",
     alt: "Wood Brown Fence Image",
     itemNumber: 53742133454,
   },

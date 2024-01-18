@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import axios from "axios";
-import Cookies from "js-cookie";
+import { ShopContext } from "./SmlComponents/ShopContext";
 
 export default function SignupCon() {
+  const { Cookies } = useContext(ShopContext);
   const [captchaValue, setCaptchaValue] = useState(null);
-  const [cookieValue, setCookieValue] = useState("");
 
   var nav = useNavigate();
   const [formData, setFormData] = useState({
@@ -18,7 +18,6 @@ export default function SignupCon() {
   });
   const [state, setState] = useState("");
   const [country, setCountry] = useState("");
-  const [choice2, setType] = useState("");
   const choice = "contributor";
 
   //this is also where we check the acceptable values for form, ie password and cpassword match etc
@@ -46,8 +45,8 @@ export default function SignupCon() {
               toast.error("Email is already registered");
             } else if (res.data == "notexist") {
               Cookies.set("email", formData.email, { expires: 7 }); //generate cookie
-              setCookieValue(Cookies.get("email"));
               toast.success("Successfully Registered");
+              nav("/contributor");
             }
           });
       }
@@ -55,30 +54,6 @@ export default function SignupCon() {
       console.log(error);
     }
   };
-  useEffect(() => {
-    if (choice2 === "contributor") {
-      nav("/contributor");
-    }
-  }, [choice2]);
-
-  const choiceAssigner = async () => {
-    try {
-      await axios
-        .post("http://127.0.0.1:8000/account", {
-          cookieValue,
-        })
-        .then((res) => {
-          setType(res.data.choice);
-        })
-        .catch(() => {});
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  useEffect(() => {
-    choiceAssigner();
-  }, [cookieValue]);
 
   return (
     <div className="">
@@ -107,7 +82,7 @@ export default function SignupCon() {
                 type="name"
                 id="name"
                 name="name"
-                className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                className="w-full bg-white rounded border border-gray-300 focus:border-homeColor focus:ring-2 focus:ring-homeColor text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
             </div>
             <div className="relative mb-4">
@@ -129,7 +104,7 @@ export default function SignupCon() {
                 type="email"
                 id="email"
                 name="email"
-                className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                className="w-full bg-white rounded border border-gray-300 focus:border-homeColor focus:ring-2 focus:ring-homeColor text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
             </div>
             <div className="relative mb-4">
@@ -151,7 +126,7 @@ export default function SignupCon() {
                 type="password"
                 id="password"
                 name="password"
-                className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                className="w-full bg-white rounded border border-gray-300 focus:border-homeColor focus:ring-2 focus:ring-homeColor text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
             </div>
             <div className="relative mb-4">
@@ -173,7 +148,7 @@ export default function SignupCon() {
                 type="password"
                 id="cpassword"
                 name="cpassword"
-                className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                className="w-full bg-white rounded border border-gray-300 focus:border-homeColor focus:ring-2 focus:ring-homeColor text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
             </div>
             <div className="relative mb-4">
@@ -190,7 +165,7 @@ export default function SignupCon() {
                 type="text"
                 id="country"
                 name="country"
-                className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                className="w-full bg-white rounded border border-gray-300 focus:border-homeColor focus:ring-2 focus:ring-homeColor text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
             </div>
             <div className="relative mb-4">
@@ -207,7 +182,7 @@ export default function SignupCon() {
                 type="text"
                 id="state"
                 name="state"
-                className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                className="w-full bg-white rounded border border-gray-300 focus:border-homeColor focus:ring-2 focus:ring-homeColor text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
             </div>
             <ReCAPTCHA
@@ -216,7 +191,7 @@ export default function SignupCon() {
               onChange={(value) => setCaptchaValue(value)}
             />
             <input
-              className="text-white cursor-pointer bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+              className="text-white cursor-pointer hover:shadow-lg bg-homeColor border-0 py-2 px-6 focus:outline-none hover:bg-homeColor rounded text-lg"
               type="submit"
               value="Sign me up !"
             />

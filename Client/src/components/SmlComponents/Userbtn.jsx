@@ -15,7 +15,6 @@ export default function UserBtn({ button, route }) {
     <div className="">
       <div
         onClick={() => showDropdown((val) => !val)}
-        onBlur={() => showDropdown((val) => !val)}
         className="flex items-center w-full"
       >
         <NavBtn button={button} />
@@ -27,18 +26,18 @@ export default function UserBtn({ button, route }) {
       >
         <Link
           to="profile"
-          className="transition-all block px-2 py-1 text-gray-700 hover:text-white font-semibold rounded hover:bg-indigo-500 md:py-4 md:px-4"
+          className="transition-all block px-2 py-1 text-gray-700 hover:text-white font-semibold rounded hover:bg-homeColor md:py-4 md:px-4"
         >
           Profile
         </Link>
         <Link
           to="cart"
-          className="transition-all block px-2 py-1 text-gray-700 hover:text-white font-semibold rounded hover:bg-indigo-500 md:py-4 md:px-4"
+          className="transition-all block px-2 py-1 text-gray-700 hover:text-white font-semibold rounded hover:bg-homeColor md:py-4 md:px-4"
         >
           Orders
         </Link>
         <div
-          className="transition-all cursor-pointer block px-2 py-1 text-gray-700 hover:text-white font-semibold rounded hover:bg-indigo-500 md:py-4 md:px-4"
+          className="transition-all cursor-pointer block px-2 py-1 text-gray-700 hover:text-white font-semibold rounded hover:bg-homeColor md:py-4 md:px-4"
           onClick={logOut}
         >
           Log Out
