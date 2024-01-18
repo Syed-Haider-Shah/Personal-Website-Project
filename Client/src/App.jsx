@@ -27,7 +27,7 @@ function App() {
   return (
     <ShopContextProvider>
       <BrowserRouter>
-        <div className="bg-gray-100">
+        <div className="font-cusFont bg-gray-100">
           <ToastContainer />
           <Navbar />
 

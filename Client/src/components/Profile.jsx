@@ -8,7 +8,7 @@ export default function Profile() {
   return (
     <>
       <div className="w-full text-center translate-y-28 ">
-        <h className="text-3xl font-bold">DYNAMICALLY FILLED</h>
+        <h1 className="text-3xl font-bold">DYNAMICALLY FILLED</h1>
         <p className="text-sm text-gray-500">
           Try to login with another profile
         </p>

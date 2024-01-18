@@ -3,8 +3,8 @@ import Product from "./SmlComponents/Product";
 const ItemDisplay = () => {
   return (
     <>
-      <div className="mx-40 translate-y-20">
-        <h className=" text-4xl font-bold">ITEMS FOR SALE</h>
+      <div className="ml-40 flex flex-col gap-2 translate-y-20">
+        <h1 className=" text-4xl font-bold">ITEMS FOR SALE</h1>
         <p className="text-gray-500">
           Add them to cart and then view the cart.
         </p>

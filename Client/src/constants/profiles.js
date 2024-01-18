@@ -3,7 +3,7 @@ export const PROFILES = [
     id: 1,
     color: "bg-green-700",
     title: "Syed Shah",
-    type: "Home Owner",
+    type: "HomeOwner",
     user: "homeowner@gmail.com",
     pass: "homeowner1",
     photo: "/icon1.png",
