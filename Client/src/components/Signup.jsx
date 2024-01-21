@@ -14,7 +14,6 @@ export default function Signup() {
     password: "",
     cpassword: "",
   });
-  axios.defaults.withCredentials = true;
   //this is also where we check the acceptable values for form, ie password and cpassword match etc
   const submit = async (e) => {
     e.preventDefault();

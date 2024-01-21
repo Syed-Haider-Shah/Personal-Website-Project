@@ -16,7 +16,6 @@ export default function Forget() {
   });
 
   //submit sends formData to backend for verification
-  axios.defaults.withCredentials = true;
   const submit = async (e) => {
     e.preventDefault();
 
