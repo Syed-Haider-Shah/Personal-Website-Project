@@ -27,7 +27,7 @@ export default function Login() {
         toast.error("Fill the Captcha");
       } else {
         await axios
-          .post("reno-pilot.vercel.app/login", {
+          .post("https://reno-pilot.vercel.app/login", {
             formData,
           })
           .then((res) => {
@@ -54,7 +54,7 @@ export default function Login() {
   const choiceAssigner = async () => {
     try {
       await axios
-        .post("reno-pilot.vercel.app/account", {
+        .post("https://reno-pilot.vercel.app/account", {
           cookieValue,
         })
         .then((res) => {

@@ -10,7 +10,7 @@ export default function HelloOld() {
   const submit = async () => {
     try {
       await axios
-        .post("reno-pilot.vercel.app/hello", {
+        .post("https://reno-pilot.vercel.app/hello", {
           cookieValue,
         })
         .then((res) => {

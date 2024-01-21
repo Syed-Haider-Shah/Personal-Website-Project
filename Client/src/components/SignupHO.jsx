@@ -35,7 +35,7 @@ export default function SignupHO() {
       } else {
         //sending form to backend
         await axios
-          .post("reno-pilot.vercel.app/signupho", {
+          .post("https://reno-pilot.vercel.app/signupho", {
             formData,
             postcode,
             choice,
