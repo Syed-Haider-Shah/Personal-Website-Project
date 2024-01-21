@@ -187,7 +187,7 @@ export default function SignupCon() {
             </div>
             <ReCAPTCHA
               className="py-5"
-              sitekey="6LdjJfMnAAAAAJA8J2HzOhrQrocs83XUzjBA8IQp"
+              sitekey="6LfZk1cpAAAAAFMhjN-AfIHObDlciWutbHiVIbm5"
               onChange={(value) => setCaptchaValue(value)}
             />
             <input
