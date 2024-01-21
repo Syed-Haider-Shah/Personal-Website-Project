@@ -29,7 +29,7 @@ export default function Signup() {
       } else {
         //sending form to backend
         await axios
-          .post("http://127.0.0.1:8000/signup", {
+          .post("reno-pilot.vercel.app/signup", {
             formData,
           }) //the response is retruned from server.js here
           .then((res) => {

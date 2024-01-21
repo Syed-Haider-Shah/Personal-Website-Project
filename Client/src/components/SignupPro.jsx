@@ -34,7 +34,7 @@ export default function SignupPro() {
       } else {
         //sending form to backend
         await axios
-          .post("http://127.0.0.1:8000/signuppro", {
+          .post("reno-pilot.vercel.app/signuppro", {
             formData,
             postcode,
             choice,

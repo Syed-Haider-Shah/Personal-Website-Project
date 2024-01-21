@@ -1,11 +1,12 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import axios from "axios";
-import Cookies from "js-cookie";
+import { ShopContext } from "./SmlComponents/ShopContext";
 
 export default function Forget() {
   const [captchaValue, setCaptchaValue] = useState(null);
+  const { Cookies } = useContext(ShopContext);
 
   //this is only a temporary storage so it can be trasported to server
   const [formData, setFormData] = useState({
@@ -23,7 +24,7 @@ export default function Forget() {
         toast.error("Fill the Captcha");
       } else {
         await axios
-          .post("http://127.0.0.1:8000/login", {
+          .post("reno-pilot.vercel.app/login", {
             formData,
           })
           .then((res) => {
