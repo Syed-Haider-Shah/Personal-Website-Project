@@ -8,7 +8,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
-app.get("/", cors(), (req, res) => {});
+app.get("/", cors(), (req, res) => {
+  res.json("HEllo");
+});
 app.post("/account", async (req, res) => {
   try {
     const email = req.body.cookieValue;
