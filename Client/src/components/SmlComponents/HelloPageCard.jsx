@@ -12,12 +12,12 @@ const HelloPageCard = ({ icon, text, title }) => {
         to="/"
       >
         <div
-          className={`flex flex-col -translate-x-[0.1rem] -translate-y-[0.1rem] text-bold justify-center absolute bg-homeColor transition-all duration-300 w-[13rem] rounded-lg overflow-hidden shadow-lg ${
+          className={`flex flex-col -translate-x-[0.1rem] -translate-y-[0.1rem] text-bold justify-center absolute bg-gradient-to-tr from-homeColor to-blueShade1  transition-all duration-300 w-[13rem] rounded-lg overflow-hidden shadow-lg ${
             isHovering ? "h-[10rem]" : "h-[0rem]"
           }`}
           to="/"
         >
-          <div className=" m-2 text-white text-1xl">{text}</div>
+          <div className=" m-2 text-white text-sm">{text}</div>
         </div>
         <div className="text-slate-700 pt-8 text-3xl lg:text-5xl">
           <i className={icon}></i>

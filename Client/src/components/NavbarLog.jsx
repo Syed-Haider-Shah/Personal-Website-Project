@@ -7,8 +7,17 @@ import UserBtn from "./SmlComponents/Userbtn";
 import classnames from "classnames";
 
 const PageColors = [
-  { link: "/", color: "bg-homeColor", initialColor: "bg-transparent" },
+  {
+    link: "/",
+    color: "bg-gradient-to-tr from-homeColor to-blueShade1",
+    initialColor: "bg-transparent",
+  },
   { link: "/proportal", color: "bg-primary", initialColor: "bg-transparent" },
+  {
+    link: "/cart",
+    color: "bg-slate",
+    initialColor: "bg-slate",
+  },
 ];
 
 export default function Navbar() {
@@ -20,8 +29,8 @@ export default function Navbar() {
   const { pathname } = useLocation();
   const pageOption = PageColors.find((val) => val.link === pathname) || {
     link: "",
-    color: "bg-homeColor",
-    initialColor: "bg-homeColor",
+    color: "bg-gradient-to-tr from-homeColor to-blueShade1",
+    initialColor: "bg-gradient-to-tr from-homeColor to-blueShade1",
   };
 
   useEffect(() => {
@@ -102,10 +111,10 @@ export default function Navbar() {
       {/*header controls entire the nav*/}
       <header
         className={classnames(
-          "p-4 flex flex-col md:flex-row gap-6 md:gap-0 md:flex  md:justify-between md:items-center md:pl-52 md:pr-52 md:px-4 md:py-2 text-white transition-all duration-300 overflow-hidden",
+          "p-4 flex flex-col md:flex-row gap-6 md:gap-0 md:flex  md:justify-between md:items-center md:pl-52 md:pr-52 md:px-4 md:py-2 text-white overflow-hidden",
           {
-            [`py-6 shadow-lg ${pageOption.color}`]: scrolled,
-            [pageOption.initialColor]: !scrolled,
+            [`py-6 ${pageOption.color}`]: scrolled,
+            [`${pageOption.initialColor}`]: !scrolled,
           }
         )}
       >
@@ -162,7 +171,6 @@ export default function Navbar() {
           <NavBtn button="Image Slider" route="/slider" />
           <NavBtn button="Profile Keys" route="/profilekeys" />
           <NavBtn button="Items Display" route="/itemdisplay" />
-          <NavBtn button="About Us" route="aboutus" />
           {navOptions}
           <Link
             to="/cart"

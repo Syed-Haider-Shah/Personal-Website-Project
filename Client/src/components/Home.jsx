@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import RedIcon from "../CustomIcons/redIcon";
-import PurpleIcon from "../CustomIcons/PurpleIcon";
-import GreenIcon from "../CustomIcons/GreenIcon";
+import RedIcon from "../CustomIcons/RedIcon.jsx";
+import PurpleIcon from "../CustomIcons/PurpleIcon.jsx";
+import GreenIcon from "../CustomIcons/GreenIcon.jsx";
 
 const Background = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -30,7 +30,7 @@ const Background = () => {
           className="absolute inset-0 "
         >
           <video
-            src="/video4.mp4"
+            src="/video7.mp4"
             loop
             autoPlay
             className="w-full h-[90%] object-cover bg-homeColor/80"
@@ -38,8 +38,11 @@ const Background = () => {
           <div
             className={`absolute top-[32%] left-[52%] transform -translate-x-[55%] bg-transparent text-center z-10`}
           >
-            <h1 className="drop-shadow-2 text-2xl md:text-5xl font-bold text-white font-outline-">
-              ONE-STOP-SHOP FOR HOMEOWNERS, PROVIDERS & DIY-ERs
+            <h1 className="drop-shadow-2 text-3xl md:text-6xl font-bold text-white font-outline-">
+              ONE-STOP-SHOP FOR
+            </h1>
+            <h1 className="drop-shadow-2 text-xl md:text-5xl font-bold text-white font-outline-">
+              HOMEOWNERS & PROVIDERS
             </h1>
           </div>
         </div>

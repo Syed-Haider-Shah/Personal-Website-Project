@@ -19,10 +19,13 @@ export default {
         iconGreen: "#67ad5b",
         iconPurple: "#8f31aa",
         iconRed: "#e15240",
+        blueShade1: "#2596be",
+        blueShade2: "#4ca9be",
       },
     },
     fontFamily: {
       cusFont: ["Open Sans", "sans-serif"],
+      cursive: ["Pacifico", "cursive"],
     },
   },
   plugins: [],
