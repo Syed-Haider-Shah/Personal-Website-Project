@@ -23,30 +23,26 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      if (!captchaValue) {
-        toast.error("Fill the Captcha");
-      } else {
-        await axios
-          .post("https://reno-pilot.vercel.app/login", {
-            formData,
-          })
-          .then((res) => {
-            if (res.data == "loginPass") {
-              Cookies.set("email", formData.email, { expires: 7 });
-              setCookieValue(Cookies.get("email")); //generating cookies
-              toast.success("Successfully Logged in");
-            } else if (res.data == "nouser") {
-              toast.error("This email is not registered");
-            } else if (res.data == "loginFail") {
-              toast.error("Invalid Credentials");
-            } else if (res.data == "fail") {
-              toast.error("Somethig went wrong!");
-            }
-          })
-          .catch(() => {
-            toast.error("Somethig went wrong!1");
-          });
-      }
+      await axios
+        .post("https://reno-pilot.vercel.app/login", {
+          formData,
+        })
+        .then((res) => {
+          if (res.data == "loginPass") {
+            Cookies.set("email", formData.email, { expires: 7 });
+            setCookieValue(Cookies.get("email")); //generating cookies
+            toast.success("Successfully Logged in");
+          } else if (res.data == "nouser") {
+            toast.error("This email is not registered");
+          } else if (res.data == "loginFail") {
+            toast.error("Invalid Credentials");
+          } else if (res.data == "fail") {
+            toast.error("Somethig went wrong!");
+          }
+        })
+        .catch(() => {
+          toast.error("Somethig went wrong!1");
+        });
     } catch (e) {
       toast.error("Somethig went wrong!2");
     }
