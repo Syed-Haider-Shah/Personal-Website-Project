@@ -25,7 +25,7 @@ export default function Login() {
 
     try {
       await axios
-        .post("https://reno-pilot.vercel.app:8000/login", {
+        .post("http://127.0.0.1:8000/login", {
           formData,
         })
         .then((res) => {
@@ -51,7 +51,7 @@ export default function Login() {
   const choiceAssigner = async () => {
     try {
       await axios
-        .post("https://reno-pilot.vercel.app:8000/account", {
+        .post("http://127.0.0.1:8000/account", {
           cookieValue,
         })
         .then((res) => {
