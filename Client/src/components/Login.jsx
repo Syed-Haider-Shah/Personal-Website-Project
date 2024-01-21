@@ -23,26 +23,30 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      await axios
-        .post("https://reno-pilot.vercel.app/login", {
-          formData,
-        })
-        .then((res) => {
-          if (res.data == "loginPass") {
-            Cookies.set("email", formData.email, { expires: 7 });
-            setCookieValue(Cookies.get("email")); //generating cookies
-            toast.success("Successfully Logged in");
-          } else if (res.data == "nouser") {
-            toast.error("This email is not registered");
-          } else if (res.data == "loginFail") {
-            toast.error("Invalid Credentials");
-          } else if (res.data == "fail") {
-            toast.error("Somethig went wrong!");
-          }
-        })
-        .catch(() => {
-          toast.error("Somethig went wrong!1");
-        });
+      if (!captchaValue) {
+        toast.error("Fill the Captcha");
+      } else {
+        await axios
+          .post("https://reno-pilot.vercel.app/login", {
+            formData,
+          })
+          .then((res) => {
+            if (res.data == "loginPass") {
+              Cookies.set("email", formData.email, { expires: 7 });
+              setCookieValue(Cookies.get("email")); //generating cookies
+              toast.success("Successfully Logged in");
+            } else if (res.data == "nouser") {
+              toast.error("This email is not registered");
+            } else if (res.data == "loginFail") {
+              toast.error("Invalid Credentials");
+            } else if (res.data == "fail") {
+              toast.error("Somethig went wrong!");
+            }
+          })
+          .catch(() => {
+            toast.error("Somethig went wrong!1");
+          });
+      }
     } catch (e) {
       toast.error("Somethig went wrong!2");
     }
@@ -135,7 +139,7 @@ export default function Login() {
             </div>
             <ReCAPTCHA
               className="py-5"
-              sitekey="6LdjJfMnAAAAAJA8J2HzOhrQrocs83XUzjBA8IQp"
+              sitekey="6LfZk1cpAAAAAFMhjN-AfIHObDlciWutbHiVIbm5"
               onChange={(value) => setCaptchaValue(value)}
             />
             <input
