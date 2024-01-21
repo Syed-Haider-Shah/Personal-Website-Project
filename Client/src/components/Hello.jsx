@@ -13,7 +13,7 @@ export default function Hello() {
   const submit = async () => {
     try {
       await axios
-        .post("http://127.0.0.1:8000/hello", {
+        .post("https://reno-pilot.vercel.app/hello", {
           cookieValue,
         })
         .then((res) => {
