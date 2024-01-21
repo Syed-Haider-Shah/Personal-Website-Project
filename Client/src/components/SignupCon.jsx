@@ -34,7 +34,7 @@ export default function SignupCon() {
       } else {
         //sending form to backend
         await axios
-          .post("https://reno-pilot.vercel.app/signupcon", {
+          .post("https://reno-pilot.vercel.app:8000/signupcon", {
             formData,
             state,
             country,
