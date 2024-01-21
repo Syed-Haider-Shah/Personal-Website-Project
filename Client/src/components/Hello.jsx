@@ -9,7 +9,7 @@ import { HELLOCARDS } from "../constants/hello";
 export default function Hello() {
   const [cookieValue, setCookieValue] = useState(Cookies.get("email"));
   const [name, setName] = useState("");
-
+  axios.defaults.withCredentials = true;
   const submit = async () => {
     try {
       await axios

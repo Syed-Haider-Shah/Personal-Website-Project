@@ -18,6 +18,7 @@ export default function Login() {
     email: "",
     password: "",
   });
+  axios.defaults.withCredentials = true;
   //submit sends formData to backend for verification
   const submit = async (e) => {
     e.preventDefault();

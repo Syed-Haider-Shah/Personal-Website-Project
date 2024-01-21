@@ -79,7 +79,7 @@ export default function Navbar() {
         return <NavBtn button="Providers Page" route="providerpage" />;
     }
   }, [choice, cookieValue]);
-
+  axios.defaults.withCredentials = true;
   const submit = async () => {
     try {
       await axios
