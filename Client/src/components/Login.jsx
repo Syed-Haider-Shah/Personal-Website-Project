@@ -133,11 +133,7 @@ export default function Login() {
                 className="w-full bg-white rounded border border-gray-300 focus:border-homeColor focus:ring-2 focus:ring-homeColor text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
             </div>
-            <ReCAPTCHA
-              className="py-5"
-              sitekey="6LdjJfMnAAAAAJA8J2HzOhrQrocs83XUzjBA8IQp"
-              onChange={(value) => setCaptchaValue(value)}
-            />
+
             <input
               className="text-white cursor-pointer bg-homeColor border-0 py-2 px-6 focus:outline-none hover:bg-homeColor rounded text-lg"
               type="submit"
