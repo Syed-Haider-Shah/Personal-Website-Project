@@ -1,14 +1,13 @@
 const cors = require("cors");
-const bcrypt = require("bcryptjs");
 const express = require("express");
 const { userCollection } = require("./mongo.js");
-const PORT = process.env.PORT || 8000; //port for deployment, otherwise use 8000
+const PORT = 8000; //port for deployment, otherwise use 8000
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
-app.get("/", cors(), (req, res) => {
+app.get("/", (req, res) => {
   res.json("HEllo");
 });
 app.post("/account", async (req, res) => {
