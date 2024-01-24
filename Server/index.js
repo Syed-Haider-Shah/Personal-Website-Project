@@ -1,6 +1,10 @@
 const cors = require("cors");
 const express = require("express");
+<<<<<<< HEAD
 //const { userCollection } = require("./mongo/index.js");
+=======
+const { userCollection } = require("./mongo/Mongo.js");
+>>>>>>> parent of ce3ceda (fixinng mongo import 2)
 const PORT = 8000; //port for deployment, otherwise use 8000
 const app = express();
 app.use(express.json());
