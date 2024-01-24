@@ -1,6 +1,6 @@
 const cors = require("cors");
 const express = require("express");
-const { userCollection } = require("./mongo/index.js");
+//const { userCollection } = require("./mongo/index.js");
 const PORT = 8000; //port for deployment, otherwise use 8000
 const app = express();
 app.use(express.json());
