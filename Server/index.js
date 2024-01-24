@@ -1,10 +1,6 @@
 const cors = require("cors");
 const express = require("express");
-<<<<<<< HEAD
-//const { userCollection } = require("./mongo/index.js");
-=======
-const { userCollection } = require("./mongo/Mongo.js");
->>>>>>> parent of ce3ceda (fixinng mongo import 2)
+const { userCollection } = require("./mongo/index.js");
 const PORT = 8000; //port for deployment, otherwise use 8000
 const app = express();
 app.use(express.json());
@@ -168,6 +164,6 @@ app.post("/login", async (req, res) => {
   }
 });
 
-app.listen(8000, () => {
+app.listen(PORT, () => {
   console.log("port connected");
 });
