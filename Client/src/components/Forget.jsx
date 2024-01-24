@@ -24,7 +24,7 @@ export default function Forget() {
         toast.error("Fill the Captcha");
       } else {
         await axios
-          .post("http://127.0.0.1:8000/login", {
+          .post("https://reno-pilots-back-end.vercel.app/login", {
             formData,
           })
           .then((res) => {
