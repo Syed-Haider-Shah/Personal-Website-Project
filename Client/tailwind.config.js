@@ -21,6 +21,8 @@ export default {
         iconRed: "#e15240",
         blueShade1: "#2596be",
         blueShade2: "#4ca9be",
+        orangeShade1: "#de7b3d",
+        orangeShade2: "#b14521",
       },
     },
     fontFamily: {

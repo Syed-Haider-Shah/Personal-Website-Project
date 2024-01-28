@@ -29,10 +29,9 @@ const Background = () => {
           style={{ transform: `translateY(${parallaxOffset}px)` }}
           className="absolute inset-0 "
         >
-          <video
-            src="/video7.mp4"
-            loop
-            autoPlay
+          <img
+            src="/pic6.jpg"
+            alt="Home Page Image"
             className="w-full h-[90%] object-cover bg-homeColor/80"
           />
           <div

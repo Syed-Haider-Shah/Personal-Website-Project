@@ -9,7 +9,7 @@ import classnames from "classnames";
 const PageColors = [
   {
     link: "/",
-    color: "bg-gradient-to-tr from-homeColor to-blueShade1",
+    color: "bg-gradient-to-tr from-orangeShade2 to-orangeShade1",
     initialColor: "bg-transparent",
   },
   { link: "/proportal", color: "bg-primary", initialColor: "bg-transparent" },
