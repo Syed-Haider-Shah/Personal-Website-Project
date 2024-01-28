@@ -3,7 +3,7 @@ import { PROFILES } from "../constants/profiles";
 
 const ProfileKeys = () => {
   return (
-    <>
+    <div className="bg-gradient-to-tl to-white from-cartColor">
       <div className="md:h-screen flex flex-wrap items-center justify-center">
         <div className="md:-translate-y-10 justify-center flex md:p-0 p-6 flex-wrap gap-10">
           {PROFILES.map((profile) => (
@@ -21,7 +21,7 @@ const ProfileKeys = () => {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

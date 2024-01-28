@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 export default function ProviderPage() {
   return (
-    <div className="">
-      <section className="mt-16 mb-8">
+    <div className=" bg-gradient-to-tl to-white from-cartColor pt-16 h-screen">
+      <section className=" mb-8">
         <div className="mx-28 flex flex-col gap-2">
           <h1 className=" text-4xl font-bold">PROVIDER LIST</h1>
           <p className="text-gray-500">
@@ -15,7 +15,7 @@ export default function ProviderPage() {
           <div className=" shadow-lg rounded-lg flex justify-center w-96 h-20 bg-gradient-to-tr from-homeColor to-blueShade1 text-white border-2 border-black">
             <Link className="text-2xl font-bold p-6 ">Contractors</Link>
           </div>
-          <div className="bg-cartColor my-5 border-2 border-black">
+          <div className="bg-white my-5 border-2 border-black">
             <div className="px-1 font-bold underline text-md">Specific</div>
             <Link className="px-1 transition-all flex justify-between  hover:bg-gradient-to-tr from-homeColor to-blueShade1 hover:text-white hover:font-bold text-sm">
               <div className="w-fit">Airconditioning</div>
@@ -108,7 +108,7 @@ export default function ProviderPage() {
               </div>
             </Link>
           </div>
-          <div className="bg-cartColor my-5 border-2 border-black">
+          <div className="bg-white my-5 border-2 border-black">
             <div className="px-1 font-bold underline">General</div>
             <Link className="px-1 transition-all flex justify-between  hover:bg-gradient-to-tr from-homeColor to-blueShade1 hover:text-white hover:font-bold text-sm">
               <div className="w-fit">Brickwork/Blockwork</div>
@@ -146,7 +146,7 @@ export default function ProviderPage() {
           <div className=" shadow-lg rounded-lg flex justify-center w-96 h-20 bg-gradient-to-tr from-homeColor to-blueShade1 text-white border-2 border-black">
             <Link className="text-2xl font-bold p-6 ">Manufacturers</Link>
           </div>
-          <div className="bg-cartColor my-5 border-2 border-black">
+          <div className="bg-white my-5 border-2 border-black">
             <div className="px-1 font-bold underline text-md">Specific</div>
             <Link className="px-1 transition-all flex justify-between  hover:bg-gradient-to-tr from-homeColor to-blueShade1 hover:text-white hover:font-bold text-sm">
               <div className="w-fit">Bathroom</div>
@@ -203,7 +203,7 @@ export default function ProviderPage() {
               </div>
             </Link>
           </div>
-          <div className="bg-cartColor my-5 border-2 border-black">
+          <div className="bg-white my-5 border-2 border-black">
             <div className="px-1 font-bold underline">General</div>
             <Link className="px-1 transition-all flex justify-between  hover:bg-gradient-to-tr from-homeColor to-blueShade1 hover:text-white hover:font-bold text-sm">
               <div className="w-fit">Bespoke furniture</div>
@@ -259,7 +259,7 @@ export default function ProviderPage() {
           <div className=" shadow-lg rounded-lg flex justify-center w-96 h-20 bg-gradient-to-tr from-homeColor to-blueShade1 text-white border-2 border-black">
             <Link className="text-2xl font-bold p-6 ">Retailers</Link>
           </div>
-          <div className="bg-cartColor my-5 border-2 border-black">
+          <div className="bg-white my-5 border-2 border-black">
             <div className="px-1 font-bold underline text-md">Specific</div>
             <Link className="px-1 transition-all flex justify-between  hover:bg-gradient-to-tr from-homeColor to-blueShade1 hover:text-white hover:font-bold text-sm">
               <div className="w-fit">Air conditioning</div>
@@ -322,7 +322,7 @@ export default function ProviderPage() {
               </div>
             </Link>
           </div>
-          <div className="bg-cartColor my-5 border-2 border-black">
+          <div className="bg-white my-5 border-2 border-black">
             <div className="px-1 font-bold underline">General</div>
             <Link className="px-1 transition-all flex justify-between  hover:bg-gradient-to-tr from-homeColor to-blueShade1 hover:text-white hover:font-bold text-sm">
               <div className="w-fit">Building materials</div>
@@ -360,7 +360,7 @@ export default function ProviderPage() {
           <div className=" shadow-lg rounded-lg flex justify-center w-96 h-20 bg-gradient-to-tr from-homeColor to-blueShade1 text-white border-2 border-black">
             <Link className="text-2xl font-bold p-6 ">Other</Link>
           </div>
-          <div className="bg-cartColor my-5 border-2 border-black">
+          <div className="bg-white my-5 border-2 border-black">
             <div className="px-1 font-bold underline text-md">Specific</div>
             <Link className="px-1 transition-all flex justify-between  hover:bg-gradient-to-tr from-homeColor to-blueShade1 hover:text-white hover:font-bold text-sm">
               <div className="w-fit">Electricity</div>
