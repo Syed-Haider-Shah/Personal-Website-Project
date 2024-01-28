@@ -24,7 +24,7 @@ export default function Login() {
 
     try {
       await axios
-        .post("https://reno-pilots-back-end.vercel.app/login", {
+        .post("https://reno-pilots-back-end.vercel.app:8000/login", {
           formData,
         })
         .then((res) => {
@@ -50,7 +50,7 @@ export default function Login() {
   const choiceAssigner = async () => {
     try {
       await axios
-        .post("https://reno-pilots-back-end.vercel.app/account", {
+        .post("https://reno-pilots-back-end.vercel.app:8000/account", {
           cookieValue,
         })
         .then((res) => {

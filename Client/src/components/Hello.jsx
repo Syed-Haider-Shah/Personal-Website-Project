@@ -12,7 +12,7 @@ export default function Hello() {
   const submit = async () => {
     try {
       await axios
-        .post("https://reno-pilots-back-end.vercel.app/hello", {
+        .post("https://reno-pilots-back-end.vercel.app:8000/hello", {
           cookieValue,
         })
         .then((res) => {
