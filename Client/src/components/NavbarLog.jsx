@@ -82,7 +82,7 @@ export default function Navbar() {
   const submit = async () => {
     try {
       await axios
-        .post("https://reno-pilots-back-end.vercel.app:8000/account", {
+        .post("https://reno-pilots-back-end.vercel.app/account", {
           cookieValue,
         })
         .then((res) => {
