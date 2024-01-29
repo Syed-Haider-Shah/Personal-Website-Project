@@ -48,7 +48,7 @@ const Background = () => {
       </section>
       <section className=" md:translate-y-0 -translate-y-96">
         <div
-          className="relative w-[96%] left-[2%] right-[2%] -mt-80 h-screen rounded-lg z-10 mb-11 bg-white"
+          className="relative w-[96%] left-[2%] right-[2%] -mt-80 rounded-lg z-10 pb-32 bg-white"
           style={{
             borderRadius: "irem",
             /* The box shadow profile is for shadow over the grey box ordered in Top - bottom (0, 0, 0) is the RGB*/
