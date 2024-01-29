@@ -5,7 +5,7 @@ export default function ConPortal() {
     <div>
       <section className=" text-gray-600 grid place-items-center mt-6 mb-6 ">
         <h1 className="title-font sm:text-4xl  text-3xl mb-4 font-bold text-gray-900">
-          Welcome to Contributor's Portal
+          Welcome to Contributor&apos;s Portal
         </h1>
         <h2 className="mb-8 font-bold text-xl"></h2>
         <div className=" text-gray-600 flex items-center px-10 mt-6 mb-6">

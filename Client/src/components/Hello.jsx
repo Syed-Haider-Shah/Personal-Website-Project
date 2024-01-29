@@ -41,7 +41,7 @@ export default function Hello() {
           Hello 👋 {name}
         </h1>
         <h2 className="flex justify-center mb-8 text-gray-500 font-bold text-xl">
-          Now you're logged-in, where would you like to go?
+          Now you&apos;re logged-in, where would you like to go?
         </h2>
       </section>
       <section className="flex justify-evenly max-w-screen-lg mt-6 mb-6 flex-wrap">

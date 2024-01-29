@@ -19,7 +19,7 @@ export default function Selector() {
             <h2 className=" title-font font-medium text-lg lg:text-2xl mt-4 ">
               HOMEOWNER
             </h2>
-            <p>I'm looking for services to improve my home.</p>
+            <p>I&apos;m looking for services to improve my home.</p>
           </Link>
           <Link
             to="/signuppro"
@@ -29,7 +29,7 @@ export default function Selector() {
             <h2 className=" title-font font-medium text-lg lg:text-2xl mt-4 ">
               PROVIDER
             </h2>
-            <p>I'm looking for customers for my services.</p>
+            <p>I&apos;m looking for customers for my services.</p>
           </Link>
           <Link
             to="/signupcon"
@@ -39,7 +39,7 @@ export default function Selector() {
             <h2 className=" title-font font-medium text-lg lg:text-2xl mt-4 ">
               CONTRIBUTOR
             </h2>
-            <p>I'm just here to help around in the website.</p>
+            <p>I&apos;m just here to help around in the website.</p>
           </Link>
         </div>
       </section>

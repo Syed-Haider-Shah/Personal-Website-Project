@@ -4,7 +4,7 @@ import { ShopContext } from "./SmlComponents/ShopContext";
 import { useContext, useState } from "react";
 export default function Profile() {
   const { Cookies } = useContext(ShopContext);
-  const [email, getEmail] = useState(Cookies.get("email"));
+  const [email, setEmail] = useState(Cookies.get("email"));
   return (
     <div className="bg-gradient-to-tl to-white from-CartColor flex-col gap-10 pt-28 flex h-screen">
       <div className="w-full text-center">

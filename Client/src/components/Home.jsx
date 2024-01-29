@@ -73,8 +73,8 @@ const Background = () => {
                     Homeowners are customers in search of services and service
                     providers. They have access to a welcome page, they will get
                     redirected to this page once they logged in or signed up to
-                    the website. They also have access to Provider's Page, which
-                    lists all the services that are available.
+                    the website. They also have access to Provider&apos;s Page,
+                    which lists all the services that are available.
                   </p1>
                 </div>
               </div>
@@ -87,8 +87,8 @@ const Background = () => {
                     has access to their Portal Page, which they will get
                     redirected to once they are logged in or signed up, they
                     also have option to visit their Portal via the navbar.
-                    Unlike the other two users, provider doesn't have access to
-                    the Provider's Page.
+                    Unlike the other two users, provider doesn&apos;t have
+                    access to the Provider&apos;s Page.
                   </p1>
                 </div>
               </div>
@@ -100,8 +100,8 @@ const Background = () => {
                     Contributors are users who want to contribute to the website
                     itself. Their work is supposed to show up on DIY page. As of
                     now, DIY page has not been implemented to the website yet.
-                    Contributor has access to Provider's Page and to the
-                    Contributor's Portal page. Which they get redirected to
+                    Contributor has access to Provider&apos;s Page and to the
+                    Contributor&apos;s Portal page. Which they get redirected to
                     similar to other users.
                   </p1>
                 </div>

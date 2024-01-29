@@ -1,12 +1,10 @@
 import { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import ReCAPTCHA from "react-google-recaptcha";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { ShopContext } from "./SmlComponents/ShopContext";
 
 export default function Login() {
-  const [captchaValue, setCaptchaValue] = useState(null);
   const [cookieValue, setCookieValue] = useState("");
   const [choice, setType] = useState("");
   const { Cookies } = useContext(ShopContext);
@@ -75,7 +73,7 @@ export default function Login() {
     } else if (choice === "homeowner") {
       nav("/homeowner");
     }
-  }, [choice]);
+  }, [choice, nav]);
 
   return (
     <div className="">
@@ -142,7 +140,7 @@ export default function Login() {
             <Link to={"/forget"} className="text-base text-red-500 mt-3">
               Forgot Password?
             </Link>
-            <p className="text-base mt-3">Don't have an account?</p>
+            <p className="text-base mt-3">Don&apos;t have an account?</p>
             <p className="text-base text-blue-700 mt-3">
               <Link to={"/signup"}>Register New Account</Link>
             </p>
