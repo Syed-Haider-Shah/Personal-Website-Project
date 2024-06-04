@@ -1,15 +1,22 @@
 const cors = require("cors");
 const express = require("express");
 const { userCollection } = require("./mongo/mongo.js");
-const PORT = 8000; //port for deployment, otherwise use 8000
+const PORT = 8000; //set port in environmental variable later
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
+//use postman for testing
 app.get("/", (req, res) => {
   res.json("HEllo");
+  console.log("works locally")
 });
+
+app.get("/account", (req, res) => {
+  res.json("HEllo2");
+});
+
 app.post("/account", async (req, res) => {
   try {
     const email = req.body.cookieValue;
