@@ -10,7 +10,6 @@ app.use(cors());
 app.get("/", (req, res) => {
   res.json("HEllo");
 });
-
 app.post("/account", async (req, res) => {
   try {
     const email = req.body.cookieValue;
