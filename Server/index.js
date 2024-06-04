@@ -1,7 +1,7 @@
 const cors = require("cors");
 const express = require("express");
 const { userCollection } = require("./mongo/mongo.js");
-const PORT = 8000; //set port in environmental variable later
+const PORT = 8000; //set port in environmental variable
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
