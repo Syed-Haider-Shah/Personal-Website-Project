@@ -7,8 +7,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'path/to/index.html'));
+app.get("/", (req, res) => {
+  res.json("HEllo");
 });
 
 app.post("/account", async (req, res) => {
