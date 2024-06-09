@@ -1,5 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import Home from "./components/Home";
@@ -23,14 +23,16 @@ import Cart from "./components/Cart";
 import ProfileKeys from "./components/ProfileKeys";
 import { ShopContextProvider } from "./components/SmlComponents/ShopContext";
 
+//for my info, react router doesnt directly catch all URLs, it only catches teh default domain, so i gotta setup a catch all in order to access path directly
+//hash router is bad for seo, only use this if i cant figure out the other way
 function App() {
   return (
     <ShopContextProvider>
-      <BrowserRouter>
+      
         <div className="font-cusFont bg-gray-100">
           <ToastContainer />
           <Navbar />
-
+          
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/proportal" element={<ProPortal />} />
@@ -52,7 +54,6 @@ function App() {
           </Routes>
           <Footer />
         </div>
-      </BrowserRouter>
     </ShopContextProvider>
   );
 }
