@@ -32,7 +32,7 @@ function App() {
           <Navbar />
 
           <Routes>
-            <Route path="/login" element={<Login />} />
+            <Route path="https://reno-pilots-front-end.vercel.app/login" element={<Login />} />
             <Route path="/proportal" element={<ProPortal />} />
             <Route path="/contributor" element={<ConPortal />} />
             <Route path="/homeowner" element={<Hello />} />
