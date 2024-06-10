@@ -21,18 +21,13 @@ import ImageSlider from "./components/ImageSlider";
 import ItemDisplay from "./components/ItemDisplay";
 import Cart from "./components/Cart";
 import ProfileKeys from "./components/ProfileKeys";
-import { ShopContextProvider } from "./components/SmlComponents/ShopContext";
 
-//for my info, react router doesnt directly catch all URLs, it only catches teh default domain, so i gotta setup a catch all in order to access path directly
-//hash router is bad for seo, only use this if i cant figure out the other way
+//hash router is bad for seo, but react is already bad at seo
 function App() {
   return (
-    <ShopContextProvider>
-      
         <div className="font-cusFont bg-gray-100">
           <ToastContainer />
-          <Navbar />
-          
+          <Navbar />  
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/proportal" element={<ProPortal />} />
@@ -54,7 +49,6 @@ function App() {
           </Routes>
           <Footer />
         </div>
-    </ShopContextProvider>
   );
 }
 
