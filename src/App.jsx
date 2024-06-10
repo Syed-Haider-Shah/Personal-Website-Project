@@ -1,7 +1,7 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useRoutes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { ROUTES } from "./constants/routes.jsx"
 import Home from "./components/Home";
 import Navbar from "./components/NavbarLog";
 import Footer from "./components/Footer";
@@ -9,7 +9,6 @@ import Login from "./components/Login";
 import Profile from "./components/Profile";
 import Hello from "./components/Hello";
 import Forget from "./components/Forget";
-
 import Selector from "./components/SelectorPage";
 import SignupCon from "./components/SignupCon";
 import SignupHO from "./components/SignupHO";
@@ -22,31 +21,33 @@ import ItemDisplay from "./components/ItemDisplay";
 import Cart from "./components/Cart";
 import ProfileKeys from "./components/ProfileKeys";
 
+
 //hash router is bad for seo, but react is already bad at seo
 function App() {
+  const routes = useRoutes([
+    { path: "/proportal", element: <ProPortal /> },
+    { path: "/login", element: <Login /> },
+    { path: "/contributor", element: <ConPortal /> },
+    { path: "/homeowner", element: <Hello /> },
+    { path: "/signup", element: <Selector /> },
+    { path: "/signupho", element: <SignupHO /> },
+    { path: "/signupcon", element: <SignupCon /> },
+    { path: "/signuppro", element: <SignupPro /> },
+    { path:"/", element: <Home /> },
+    { path: "/profile", element: <Profile />},
+    { path: "/forget", element: <Forget /> },
+    { path: "/slider", element: <ImageSlider /> },
+    { path: "/providerpage", element: <ProviderPage /> },
+    { path: "/itemdisplay", element: <ItemDisplay /> },
+    { path: "/cart", element: <Cart /> },
+    { path: "/profilekeys", element: <ProfileKeys /> },
+  ])
+  
   return (
         <div className="font-cusFont bg-gray-100">
           <ToastContainer />
           <Navbar />  
-          <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/proportal" element={<ProPortal />} />
-            <Route path="/contributor" element={<ConPortal />} />
-            <Route path="/homeowner" element={<Hello />} />
-            <Route path="/signup" element={<Selector />} />
-            <Route path="/signupho" element={<SignupHO />} />
-            <Route path="/signupcon" element={<SignupCon />} />
-            <Route path="/signuppro" element={<SignupPro />} />
-            <Route path="/" element={<Home />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/forget" element={<Forget />} />
-            <Route path="/slider" element={<ImageSlider />} />
-            <Route path="/providerpage" element={<ProviderPage />} />
-            <Route path="/itemdisplay" element={<ItemDisplay />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/profilekeys" element={<ProfileKeys />} />
-            <Route path="/profile" element={<Profile />} />
-          </Routes>
+          {routes}
           <Footer />
         </div>
   );
